@@ -12,7 +12,7 @@ class CrossAttention(nn.Module):
         self.image_projection = nn.Linear(image_embed_dim, projection_dim)
 
         self.cross_attention = nn.MultiheadAttention(
-            embed_dim=self.prjection_dim,
+            embed_dim=projection_dim,
             num_heads=num_heads,
             batch_first=True # Expects (batch, seq, feature)
         )
@@ -25,6 +25,8 @@ class CrossAttention(nn.Module):
         :param image_embeddings: The key/value from the image (torch.Tensor). Shape: (batch_size, num_patches, image_embed_dim)
         :return: torch.Tensor: The fused embedding. Shape: (batch_size, 1, projection_dim)
         """
+        # Clone the input tensors to ensure they're proper tensors for autograd
+
         # Project the text and image embeddings to the common dimension
         projected_text = self.text_projection(text_embedding)
         projected_image = self.image_projection(image_embeddings)

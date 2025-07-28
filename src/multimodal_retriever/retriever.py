@@ -47,7 +47,7 @@ class Retriever(nn.Module):
         :return: np.ndarray: A 1D numpy array representing the final query vector
         """
         # 1. Encode the image to get patch embeddings (K, V)
-        image_embeddings = self.vision_encoder(image)
+        image_embedding = self.vision_encoder(image)
 
         # 2. Encode the text to get the query embedding (Q)
         text_embedding = self.text_encoder.encode(text_query) # Shape: (1, 1024)
@@ -55,7 +55,7 @@ class Retriever(nn.Module):
 
         # 3. Fuse them using the cross-attention module
         # The fusion module will handle projecting to the common dimension
-        fused_embedding = self.fusion_module(text_embedding, image_embeddings)
+        fused_embedding = self.fusion_module(text_embedding, image_embedding)
 
         # 4. Project the fused embedding to get the final query vector
         # Squeeze to remove the sequence dimension from (1, 1, 1024) -> (1, 1024)
@@ -90,9 +90,10 @@ if __name__ == "__main__":
     # We use a text encoder to create embeddings for the documents.
     # The database embeddings should match the final output dimension of our retriever.
     # The retriever's output is `projection_dim` which is 1024.
-    doc_encoder = SentenceTransformer(device="cuda" if torch.cuda.is_available() else "cpu")
+    doc_encoder = SentenceTransformer("BAAI/bge-m3",device="cuda" if torch.cuda.is_available() else "cpu")
     print("Encoding dummy documents for the database...")
     document_embeddings = doc_encoder.encode(dummy_documents, normalize_embeddings=True)
+    # document_embeddings = [doc_encoder.encode(dummy_document) for dummy_document in dummy_documents]
 
     # Create a FAISS index. The dimension must match the embeddings.
     embedding_dim = document_embeddings.shape[1]
@@ -120,7 +121,8 @@ if __name__ == "__main__":
 
     # Generate the multimodal query vector
     print("Generating multimodal query vector...")
-    query_vector = retriever(query_image, query_text)
+    with torch.inference_mode():
+        query_vector = retriever(query_image, query_text)
 
     # Search the FAISS index
     k = 3  # Retrieve top 3 results

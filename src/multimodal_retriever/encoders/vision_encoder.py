@@ -32,6 +32,6 @@ class VisionEncoder(nn.Module):
         # We use the `last_hidden_state` which contains the embeddings for each patch of the image.
         # This will be our K and V for the cross-attention layer
         # Shape: (1, 197, 768) for VIT-Base (196 patches + 1 CLS token)
-        return outputs.last_hiddden_state
+        return outputs.last_hidden_state
 
 
