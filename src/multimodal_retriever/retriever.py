@@ -1,3 +1,6 @@
+import time
+from typing import Union, List
+
 import numpy as np
 import requests
 import torch
@@ -39,26 +42,40 @@ class Retriever(nn.Module):
         # The final output projection takes projection_dim as input
         self.output_projection = nn.Linear(self.projection_dim, self.projection_dim).to(self.device)
 
-    def forward(self, image: Image.Image, text_query: str) -> np.ndarray:
+    def forward(self, images: Union[Image.Image, List[Image.Image]], text_queries: Union[str, List[str]]) -> Union[np.ndarray, torch.Tensor]:
         """
-        Generates a final, fused embedding for retrieval
-        :param image: the input image (Image.Image)
-        :param text_query: The text query (str)
-        :return: np.ndarray: A 1D numpy array representing the final query vector
+        Generates final, fused embeddings for retrieval
+        :param images: Single image (Image.Image) or list of images (List[Image.Image])
+        :param text_queries: Single text query (str) or list of text queries (List[str])
+        :return: For single input: np.ndarray (1D array), For batch: torch.Tensor (2D tensor)
+        """
+        # Handle single input case (backward compatibility)
+        if isinstance(images, Image.Image) and isinstance(text_queries, str):
+            return self._forward_single(images, text_queries)
+        
+        # Handle batch input case
+        if isinstance(images, list) and isinstance(text_queries, list):
+            return self._forward_batch(images, text_queries)
+        
+        raise ValueError("Both images and text_queries must be either single items or lists of the same length")
+
+    def _forward_single(self, image: Image.Image, text_query: str) -> np.ndarray:
+        """
+        Forward pass for single image and text query (original functionality)
         """
         # 1. Encode the image to get patch embeddings (K, V)
         image_embedding = self.vision_encoder(image)
+        image_embedding = torch.clone(image_embedding)
 
         # 2. Encode the text to get the query embedding (Q)
         text_embedding = self.text_encoder.encode(text_query) # Shape: (1, 1024)
         text_embedding = text_embedding.unsqueeze(1) # (batch, dim) -> (batch, seq_len, dim)
+        text_embedding = torch.clone(text_embedding)
 
         # 3. Fuse them using the cross-attention module
-        # The fusion module will handle projecting to the common dimension
         fused_embedding = self.fusion_module(text_embedding, image_embedding)
 
         # 4. Project the fused embedding to get the final query vector
-        # Squeeze to remove the sequence dimension from (1, 1, 1024) -> (1, 1024)
         final_vector = self.output_projection(fused_embedding.squeeze(1))
 
         # 5. normalize the final vector (good practice for cosine similarity search)
@@ -66,6 +83,50 @@ class Retriever(nn.Module):
 
         # Detach from graph, move to CPU and convert to numpy
         return final_vector.detach().cpu().numpy()
+
+    def _forward_batch(self, images: List[Image.Image], text_queries: List[str]) -> torch.Tensor:
+        """
+        Forward pass for batch of images and text queries
+        """
+        if len(images) != len(text_queries):
+            raise ValueError(f"Number of images ({len(images)}) must match number of text queries ({len(text_queries)})")
+
+        batch_size = len(images)
+        
+        # Process images in batch
+        image_embeddings = []
+        for image in images:
+            image_embedding = self.vision_encoder(image)
+            image_embeddings.append(image_embedding)
+        
+        # Stack image embeddings: List[(1, seq_len, dim)] -> (batch_size, seq_len, dim)
+        batched_image_embeddings = torch.cat(image_embeddings, dim=0)
+        batched_image_embeddings = torch.clone(batched_image_embeddings)
+
+        # Process text queries in batch
+        text_embeddings = []
+        for text_query in text_queries:
+            text_embedding = self.text_encoder.encode(text_query) # Shape: (1, 1024)
+            text_embeddings.append(text_embedding)
+        
+        # Stack text embeddings: List[(1, dim)] -> (batch_size, dim)
+        batched_text_embeddings = torch.cat(text_embeddings, dim=0)
+        # Add sequence dimension: (batch_size, dim) -> (batch_size, 1, dim)
+        batched_text_embeddings = batched_text_embeddings.unsqueeze(1)
+        batched_text_embeddings = torch.clone(batched_text_embeddings).requires_grad_(True)
+
+        # 3. Fuse them using the cross-attention module
+        fused_embeddings = self.fusion_module(batched_text_embeddings, batched_image_embeddings)
+
+        # 4. Project the fused embeddings to get the final query vectors
+        # Shape: (batch_size, 1, projection_dim) -> (batch_size, projection_dim)
+        final_vectors = self.output_projection(fused_embeddings.squeeze(1))
+
+        # 5. normalize the final vectors (good practice for cosine similarity search)
+        final_vectors = nn.functional.normalize(final_vectors, p=2, dim=1)
+
+        return final_vectors
+
 
 if __name__ == "__main__":
     print("\n--- Initializing Multimodal Retriever ---")
@@ -137,6 +198,11 @@ if __name__ == "__main__":
         print(f"Rank {i + 1}: Document {doc_index} (Similarity: {similarity_score:.4f})")
         print(f"   Content: '{dummy_documents[doc_index]}'")
 
-
-
-
+    # Test batch processing
+    print("\n--- Testing batch processing ---")
+    test_images = [query_image, query_image]
+    test_texts = ["Show me the plans for this building.", "What is this building?"]
+    
+    retriever.train()  # Set to training mode for batch processing
+    batch_embeddings = retriever(test_images, test_texts)
+    print(f"Batch embeddings shape: {batch_embeddings.shape}")

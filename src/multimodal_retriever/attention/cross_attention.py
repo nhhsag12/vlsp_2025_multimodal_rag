@@ -30,6 +30,8 @@ class CrossAttention(nn.Module):
         # Project the text and image embeddings to the common dimension
         projected_text = self.text_projection(text_embedding)
         projected_image = self.image_projection(image_embeddings)
+        # print(projected_text.shape)
+        # print(projected_image.shape)
 
         # In cross-attention, the query comes from one modality (text) and the keys/values from another (image)
         # Query: projected_text
