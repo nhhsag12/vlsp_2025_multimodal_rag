@@ -1,8 +1,4 @@
-import torch
-import os
-import cv2
-from torch.utils.data import Dataset, DataLoader
-from PIL import Image
+from torch.utils.data import Dataset
 
 class MultimodalTripletDataset(Dataset):
     def __init__(self, dataset):
