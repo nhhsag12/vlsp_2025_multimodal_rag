@@ -12,6 +12,7 @@ from sentence_transformers import SentenceTransformer
 from src.multimodal_retriever.attention.cross_attention import CrossAttention
 from src.multimodal_retriever.encoders.text_encoder import TextEncoder
 from src.multimodal_retriever.encoders.vision_encoder import VisionEncoder
+from src.utils.utils import DEVICE
 
 
 class Retriever(nn.Module):
@@ -20,8 +21,7 @@ class Retriever(nn.Module):
     """
     def __init__(self, projection_dim: int = 1024):
         super().__init__()
-        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        self.vision_encoder = VisionEncoder().to(self.device)
+        self.vision_encoder = VisionEncoder().to(DEVICE)
         self.text_encoder = TextEncoder() # Manages its own device
 
         # Get embedding dimensions from the models
@@ -37,10 +37,10 @@ class Retriever(nn.Module):
             text_embed_dim=text_embed_dim,
             image_embed_dim=image_embed_dim,
             projection_dim=self.projection_dim
-        ).to(self.device)
+        ).to(DEVICE)
 
         # The final output projection takes projection_dim as input
-        self.output_projection = nn.Linear(self.projection_dim, self.projection_dim).to(self.device)
+        self.output_projection = nn.Linear(self.projection_dim, self.projection_dim).to(DEVICE)
 
     def forward(self, images: Union[Image.Image, List[Image.Image]], text_queries: Union[str, List[str]]) -> Union[np.ndarray, torch.Tensor]:
         """

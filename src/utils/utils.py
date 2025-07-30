@@ -1,10 +1,11 @@
 import time
 import torch
 import os
-from src.multimodal_retriever.retriever import Retriever
+# from src.multimodal_retriever.retriever import Retriever
 
+DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-def save_model(model: Retriever, base_path: str) -> str:
+def save_model(model, base_path: str) -> str:
     """Save model state dictionary to a file with timestamp.
 
     Args:
@@ -19,7 +20,7 @@ def save_model(model: Retriever, base_path: str) -> str:
     return path_file
 
 
-def load_model(model: Retriever, path_file: str) -> Retriever:
+def load_model(model, path_file: str) :
     """Load saved model state from file.
 
     Args:

@@ -10,9 +10,9 @@ from comet_ml import Experiment
 
 from src.multimodal_retriever.retriever import Retriever
 from src.utils.dataset_utils import MultimodalTripletDataset
-from src.utils.utils import save_model
+from src.utils.utils import save_model, DEVICE
 
-DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
+# DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 
 def collate_fn(batch):
     # Load the necessary materials
@@ -89,14 +89,14 @@ def train():
         list(retriever.fusion_module.parameters()) + list(retriever.output_projection.parameters()),
         lr=1e-5
     )
-    lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max = 6)
+    # lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max = 6)
 
     # Define the loss function
     loss_fn = nn.TripletMarginLoss(margin=1.0)
 
     # -- Setup the dataset --
     print("Loading dataset...")
-    dataset_path = "data/processed_vlsp_2025_multimodal_rag_dataset.json"
+    dataset_path = "data/processed_vlsp_2025_multimodal_rag_dataset_120000.json"
     with open(dataset_path, "r") as f:
         dataset = json.load(f)
     dataset = MultimodalTripletDataset(dataset)
@@ -156,7 +156,7 @@ def train():
             progress_bar.set_postfix({'Loss': f'{loss.item():.4f}', 'Avg Loss': f'{total_loss/(batch_idx+1):.4f}'})
 
         # Update the learning rate
-        lr_scheduler.step()
+        # lr_scheduler.step()
 
         # Print epoch statistics
         avg_loss = total_loss / len(train_dataloader)

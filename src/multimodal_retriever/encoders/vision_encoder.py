@@ -3,6 +3,7 @@ import torch.nn as nn
 from transformers import AutoImageProcessor, AutoModel
 from PIL import Image
 from typing import Union, List
+from src.utils.utils import DEVICE
 
 VISION_MODEL_NAME = "google/vit-base-patch16-224-in21k"
 
@@ -14,9 +15,8 @@ class VisionEncoder(nn.Module):
 
     def __init__(self, model_name=VISION_MODEL_NAME):
         super().__init__()
-        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        self.image_processor = AutoImageProcessor.from_pretrained(model_name, device_map=self.device)
-        self.vision_model = AutoModel.from_pretrained(model_name, device_map=self.device)
+        self.image_processor = AutoImageProcessor.from_pretrained(model_name, device_map=DEVICE)
+        self.vision_model = AutoModel.from_pretrained(model_name, device_map=DEVICE)
 
     def forward(self, images: Union[Image.Image, List[Image.Image]]) -> torch.Tensor:
         """
@@ -30,7 +30,7 @@ class VisionEncoder(nn.Module):
             images = [images]
 
         # The image processor can handle batch of images
-        inputs = self.image_processor(images=images, return_tensors="pt").to(self.device)
+        inputs = self.image_processor(images=images, return_tensors="pt").to(DEVICE)
 
         # Get the model's output
         # with torch.inference_mode():
