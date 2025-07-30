@@ -5,12 +5,14 @@ import torch
 import torch.nn as nn
 from tqdm import tqdm
 from PIL import Image
+from dotenv import load_dotenv
+from comet_ml import Experiment
 
 from src.multimodal_retriever.retriever import Retriever
 from src.utils.dataset_utils import MultimodalTripletDataset
 from src.utils.utils import save_model
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 
 def collate_fn(batch):
     # Load the necessary materials
@@ -55,6 +57,21 @@ def collate_fn(batch):
 
 
 def train():
+    # Initialize Comet ML experiment tracking
+    experiment = Experiment(
+        api_key=os.getenv("COMET_API_KEY"),
+        project_name="vlsp_multimodal-retriever",
+        workspace=os.getenv("COMET_WORKSPACE"),
+    )
+
+    experiment.log_parameters({
+        "projection_dim": 1024,
+        "learning_rate": 1e-5,
+        "batch_size": 1024,
+        "num_epochs": 5,
+        "margin": 1.0,
+    })
+
     # Initialize the retriever
     print("Initializing the retriever...")
     retriever = Retriever(projection_dim=1024).to(DEVICE)
@@ -85,7 +102,7 @@ def train():
 
     train_dataloader = torch.utils.data.DataLoader(
         dataset,
-        batch_size=32,
+        batch_size=1024,
         shuffle=True,
         collate_fn=collate_fn,
     )
@@ -123,6 +140,9 @@ def train():
             # anchor: multimodal_embeddings, positive: positive_record_embeddings, negative: negative_record_embeddings
             loss = loss_fn(multimodal_embeddings, positive_record_embeddings, negative_record_embeddings)
 
+            # Log batch metrics
+            experiment.log_metric("batch_loss", loss.item(), step=batch_idx + epoch * len(train_dataloader))
+
             # Backward pass
             optimizer.zero_grad()
             loss.backward()
@@ -136,16 +156,20 @@ def train():
 
         # Print epoch statistics
         avg_loss = total_loss / len(train_dataloader)
+        experiment.log_metric("epoch_loss", avg_loss, step=epoch)
         print(f"Epoch {epoch + 1}/{num_epochs} completed. Average Loss: {avg_loss:.4f}")
 
         # Save model checkpoint every epoch
         model_path = save_model(retriever, epoch_folder_path)
+        experiment.log_model(f"model_epoch_{epoch}", model_path)
         print(f"Model saved to: {model_path}")
 
     print("Training completed!")
     
     # Save final model
     final_model_path = save_model(retriever, folder_path)
+    experiment.log_model("final_model", final_model_path)
+    experiment.end()
     print(f"Final model saved to: {final_model_path}")
 
 

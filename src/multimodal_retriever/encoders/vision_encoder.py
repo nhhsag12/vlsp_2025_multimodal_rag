@@ -11,9 +11,9 @@ class VisionEncoder(nn.Module):
     """
     def __init__(self, model_name=VISION_MODEL_NAME):
         super().__init__()
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.image_processor = AutoImageProcessor.from_pretrained(model_name, device_map="auto")
-        self.vision_model = AutoModel.from_pretrained(model_name, device_map="auto")
+        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        self.image_processor = AutoImageProcessor.from_pretrained(model_name, device_map=self.device)
+        self.vision_model = AutoModel.from_pretrained(model_name, device_map=self.device)
 
     def forward(self, image: Image.Image) -> torch.Tensor:
         """

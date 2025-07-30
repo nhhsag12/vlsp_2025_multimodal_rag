@@ -20,7 +20,7 @@ class Retriever(nn.Module):
     """
     def __init__(self, projection_dim: int = 1024):
         super().__init__()
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.vision_encoder = VisionEncoder().to(self.device)
         self.text_encoder = TextEncoder() # Manages its own device
 
