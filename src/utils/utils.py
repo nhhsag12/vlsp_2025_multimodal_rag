@@ -1,18 +1,20 @@
 import time
 import torch
+import os
 from src.multimodal_retriever.retriever import Retriever
 
 
-def save_model(model: Retriever) -> str:
+def save_model(model: Retriever, base_path: str) -> str:
     """Save model state dictionary to a file with timestamp.
 
     Args:
         model: The Retriever model to save
-
+        base_path: Base directory to save the model file in
     Returns:
         str: Path to the saved model file
     """
-    path_file = f"./trained_models/model_{time.strftime('%Y%m%d_%H%M%S')}.pt"
+    timestamp = time.strftime("%Y%m%d-%H%M%S")
+    path_file = os.path.join(base_path, f"model_{timestamp}.pt")
     torch.save(model.state_dict(), path_file)
     return path_file
 

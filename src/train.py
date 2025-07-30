@@ -1,7 +1,6 @@
 import json
 import os
-
-import cv2
+import time
 import torch
 import torch.nn as nn
 from tqdm import tqdm
@@ -92,6 +91,14 @@ def train():
     )
     print("Dataset loaded.")
 
+    # -- Setup the saving place for models --
+    # Create the folder save the trained model of the session
+    folder_path = f"trained_model/trained_model_{time.strftime('%Y%m%d-%H%M%S')}"
+    os.makedirs(folder_path, exist_ok=True)
+    epoch_folder_path = os.path.join(folder_path, "epochs")
+    os.makedirs(epoch_folder_path, exist_ok=True)
+    print(f"Model will be saved to: {folder_path}")
+
     # -- Training Loop --
     num_epochs = 5
     retriever.train()
@@ -132,17 +139,15 @@ def train():
         print(f"Epoch {epoch + 1}/{num_epochs} completed. Average Loss: {avg_loss:.4f}")
 
         # Save model checkpoint every epoch
-        model_path = save_model(retriever)
+        model_path = save_model(retriever, epoch_folder_path)
         print(f"Model saved to: {model_path}")
 
     print("Training completed!")
     
     # Save final model
-    final_model_path = save_model(retriever)
+    final_model_path = save_model(retriever, folder_path)
     print(f"Final model saved to: {final_model_path}")
 
 
 if __name__ == "__main__":
-    # Create models directory if it doesn't exist
-    os.makedirs("./models", exist_ok=True)
     train()
