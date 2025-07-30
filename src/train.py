@@ -47,7 +47,7 @@ def collate_fn(batch):
         # Remove requires_grad=True since these are target embeddings, not trainable parameters
         negative_record_embedding = torch.tensor(record_id_to_document_embedding[negative_record_id]["embedding"])
         negative_record_embeddings.append(negative_record_embedding)
-        
+
     # Stack tensors
     positive_record_embeddings = torch.stack(positive_record_embeddings)
     negative_record_embeddings = torch.stack(negative_record_embeddings)
@@ -68,7 +68,7 @@ def train():
         "projection_dim": 1024,
         "learning_rate": 1e-5,
         "batch_size": 1024,
-        "num_epochs": 5,
+        "num_epochs": 8,
         "margin": 1.0,
     })
 
@@ -89,6 +89,7 @@ def train():
         list(retriever.fusion_module.parameters()) + list(retriever.output_projection.parameters()),
         lr=1e-5
     )
+    lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max = 6)
 
     # Define the loss function
     loss_fn = nn.TripletMarginLoss(margin=1.0)
@@ -117,7 +118,7 @@ def train():
     print(f"Model will be saved to: {folder_path}")
 
     # -- Training Loop --
-    num_epochs = 5
+    num_epochs = 8
     retriever.train()
     for epoch in range(num_epochs):
         total_loss = 0.0
@@ -153,6 +154,9 @@ def train():
             
             # Update progress bar
             progress_bar.set_postfix({'Loss': f'{loss.item():.4f}', 'Avg Loss': f'{total_loss/(batch_idx+1):.4f}'})
+
+        # Update the learning rate
+        lr_scheduler.step()
 
         # Print epoch statistics
         avg_loss = total_loss / len(train_dataloader)

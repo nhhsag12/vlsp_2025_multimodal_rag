@@ -91,29 +91,14 @@ class Retriever(nn.Module):
         if len(images) != len(text_queries):
             raise ValueError(f"Number of images ({len(images)}) must match number of text queries ({len(text_queries)})")
 
-        batch_size = len(images)
-        
-        # Process images in batch
-        image_embeddings = []
-        for image in images:
-            image_embedding = self.vision_encoder(image)
-            image_embeddings.append(image_embedding)
-        
-        # Stack image embeddings: List[(1, seq_len, dim)] -> (batch_size, seq_len, dim)
-        batched_image_embeddings = torch.cat(image_embeddings, dim=0)
+        # 1. Encode the images to get patch embeddings (K, V)
+        batched_image_embeddings = self.vision_encoder(images)
         batched_image_embeddings = torch.clone(batched_image_embeddings)
 
-        # Process text queries in batch
-        text_embeddings = []
-        for text_query in text_queries:
-            text_embedding = self.text_encoder.encode(text_query) # Shape: (1, 1024)
-            text_embeddings.append(text_embedding)
-        
-        # Stack text embeddings: List[(1, dim)] -> (batch_size, dim)
-        batched_text_embeddings = torch.cat(text_embeddings, dim=0)
-        # Add sequence dimension: (batch_size, dim) -> (batch_size, 1, dim)
-        batched_text_embeddings = batched_text_embeddings.unsqueeze(1)
-        batched_text_embeddings = torch.clone(batched_text_embeddings).requires_grad_(True)
+        # 2. Encode the text to get the query embeddings (Q)
+        batched_text_embeddings = self.text_encoder.encode(text_queries)
+        batched_text_embeddings = batched_text_embeddings.unsqueeze(1) # (batch, dim) -> (batch, num_patches, dim)
+        batched_text_embeddings = torch.clone(batched_text_embeddings)
 
         # 3. Fuse them using the cross-attention module
         fused_embeddings = self.fusion_module(batched_text_embeddings, batched_image_embeddings)

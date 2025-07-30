@@ -1,3 +1,5 @@
+from typing import Union, List
+
 import torch
 from sentence_transformers import SentenceTransformer
 class TextEncoder:
@@ -9,18 +11,20 @@ class TextEncoder:
         self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.model = SentenceTransformer(model_name, device=self.device)
 
-    def encode(self, text: str)->torch.Tensor:
+    def encode(self, texts: Union[str, List[str]])->torch.Tensor:
         """
         Encodes a single text string into embedding
 
-        :param text: the input text (str)
+        :param texts: the input text (str)
         :return: torch.Tensor: A tensor of shape (1, embedding_dim)
         """
+        if isinstance(texts, str):
+            texts = [texts]
         # The model directly return a tensor
-        embedding = self.model.encode(text, convert_to_tensor=True)
+        embedding = self.model.encode(texts, convert_to_tensor=True)
 
         # Ensure the embedding is on the correct device
-        return embedding.unsqueeze(0).to(self.device)
+        return embedding
 
 
 
