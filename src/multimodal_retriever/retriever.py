@@ -17,9 +17,9 @@ from src.utils.utils import DEVICE
 
 class Retriever(nn.Module):
     """
-    The main class that combines all components to generate a multimodal query embedding
+    Enhanced multimodal retriever with additional neural network layers
     """
-    def __init__(self, projection_dim: int = 1024):
+    def __init__(self, projection_dim: int = 1024, dropout: float = 0.1):
         super().__init__()
         self.vision_encoder = VisionEncoder().to(DEVICE)
         self.text_encoder = TextEncoder() # Manages its own device
@@ -31,20 +31,38 @@ class Retriever(nn.Module):
         # The common dimension to project both embeddings into
         self.projection_dim = projection_dim
 
-        # As per the diagram, the text embedding (Q) and image features (K, V) are fused
-        # The fusion module now handles the projection internally
+        # Enhanced fusion module with more layers
         self.fusion_module = CrossAttention(
             text_embed_dim=text_embed_dim,
             image_embed_dim=image_embed_dim,
-            projection_dim=self.projection_dim
+            projection_dim=self.projection_dim,
+            dropout=dropout
         ).to(DEVICE)
 
-        # The final output projection takes projection_dim as input
-        self.output_projection = nn.Linear(self.projection_dim, self.projection_dim).to(DEVICE)
+        # Multi-layer output projection network
+        self.output_projection = nn.Sequential(
+            nn.Linear(self.projection_dim, self.projection_dim * 2),
+            nn.LayerNorm(self.projection_dim * 2),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(self.projection_dim * 2, self.projection_dim),
+            nn.LayerNorm(self.projection_dim),
+            nn.Dropout(dropout),
+            nn.Linear(self.projection_dim, self.projection_dim)
+        ).to(DEVICE)
+        
+        # Additional contextual processing layer
+        self.contextual_processor = nn.TransformerEncoderLayer(
+            d_model=self.projection_dim,
+            nhead=8,
+            dim_feedforward=self.projection_dim * 4,
+            dropout=dropout,
+            batch_first=True
+        ).to(DEVICE)
 
     def forward(self, images: Union[Image.Image, List[Image.Image]], text_queries: Union[str, List[str]]) -> Union[np.ndarray, torch.Tensor]:
         """
-        Generates final, fused embeddings for retrieval
+        Generates final, fused embeddings for retrieval with enhanced processing
         :param images: Single image (Image.Image) or list of images (List[Image.Image])
         :param text_queries: Single text query (str) or list of text queries (List[str])
         :return: For single input: np.ndarray (1D array), For batch: torch.Tensor (2D tensor)
@@ -61,9 +79,9 @@ class Retriever(nn.Module):
 
     def _forward_single(self, image: Image.Image, text_query: str) -> np.ndarray:
         """
-        Forward pass for single image and text query (original functionality)
+        Enhanced forward pass for single image and text query
         """
-        # 1. Encode the image to get patch embeddings (K, V)
+        # 1. Encode the image to get enhanced patch embeddings (K, V)
         image_embedding = self.vision_encoder(image)
         image_embedding = torch.clone(image_embedding)
 
@@ -72,13 +90,16 @@ class Retriever(nn.Module):
         text_embedding = text_embedding.unsqueeze(1) # (batch, dim) -> (batch, seq_len, dim)
         text_embedding = torch.clone(text_embedding)
 
-        # 3. Fuse them using the cross-attention module
+        # 3. Fuse them using the enhanced cross-attention module
         fused_embedding = self.fusion_module(text_embedding, image_embedding)
 
-        # 4. Project the fused embedding to get the final query vector
-        final_vector = self.output_projection(fused_embedding.squeeze(1))
+        # 4. Apply contextual processing
+        contextual_embedding = self.contextual_processor(fused_embedding)
 
-        # 5. normalize the final vector (good practice for cosine similarity search)
+        # 5. Project through the enhanced output projection network
+        final_vector = self.output_projection(contextual_embedding.squeeze(1))
+
+        # 6. Normalize the final vector (good practice for cosine similarity search)
         final_vector = nn.functional.normalize(final_vector, p=2, dim=1)
 
         # Detach from graph, move to CPU and convert to numpy
@@ -86,12 +107,12 @@ class Retriever(nn.Module):
 
     def _forward_batch(self, images: List[Image.Image], text_queries: List[str]) -> torch.Tensor:
         """
-        Forward pass for batch of images and text queries
+        Enhanced forward pass for batch of images and text queries
         """
         if len(images) != len(text_queries):
             raise ValueError(f"Number of images ({len(images)}) must match number of text queries ({len(text_queries)})")
 
-        # 1. Encode the images to get patch embeddings (K, V)
+        # 1. Encode the images to get enhanced patch embeddings (K, V)
         batched_image_embeddings = self.vision_encoder(images)
         batched_image_embeddings = torch.clone(batched_image_embeddings)
 
@@ -100,23 +121,26 @@ class Retriever(nn.Module):
         batched_text_embeddings = batched_text_embeddings.unsqueeze(1) # (batch, dim) -> (batch, num_patches, dim)
         batched_text_embeddings = torch.clone(batched_text_embeddings)
 
-        # 3. Fuse them using the cross-attention module
+        # 3. Fuse them using the enhanced cross-attention module
         fused_embeddings = self.fusion_module(batched_text_embeddings, batched_image_embeddings)
 
-        # 4. Project the fused embeddings to get the final query vectors
-        # Shape: (batch_size, 1, projection_dim) -> (batch_size, projection_dim)
-        final_vectors = self.output_projection(fused_embeddings.squeeze(1))
+        # 4. Apply contextual processing
+        contextual_embeddings = self.contextual_processor(fused_embeddings)
 
-        # 5. normalize the final vectors (good practice for cosine similarity search)
+        # 5. Project through the enhanced output projection network
+        # Shape: (batch_size, 1, projection_dim) -> (batch_size, projection_dim)
+        final_vectors = self.output_projection(contextual_embeddings.squeeze(1))
+
+        # 6. Normalize the final vectors (good practice for cosine similarity search)
         final_vectors = nn.functional.normalize(final_vectors, p=2, dim=1)
 
         return final_vectors
 
 
 if __name__ == "__main__":
-    print("\n--- Initializing Multimodal Retriever ---")
+    print("\n--- Initializing Enhanced Multimodal Retriever ---")
     # We can define the projection dimension here. Let's use the text model's dimension.
-    retriever = Retriever(projection_dim=1024)
+    retriever = Retriever(projection_dim=1024, dropout=0.1)
     retriever.eval()  # Set to evaluation mode
 
     # --- Setup a dummy vector database (your "raw_db") ---

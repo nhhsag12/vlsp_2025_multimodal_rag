@@ -60,15 +60,15 @@ def train():
     # Initialize Comet ML experiment tracking
     experiment = Experiment(
         api_key=os.getenv("COMET_API_KEY"),
-        project_name="vlsp_multimodal-retriever",
+        project_name="vlsp_multimodal_retriever",
         workspace=os.getenv("COMET_WORKSPACE"),
     )
-
+    num_epochs = 3
     experiment.log_parameters({
         "projection_dim": 1024,
         "learning_rate": 1e-5,
         "batch_size": 1024,
-        "num_epochs": 8,
+        "num_epochs": num_epochs,
         "margin": 1.0,
     })
 
@@ -87,9 +87,9 @@ def train():
     # Only train the parameter of the fusion and output projection layers
     optimizer = torch.optim.Adam(
         list(retriever.fusion_module.parameters()) + list(retriever.output_projection.parameters()),
-        lr=1e-5
+        lr=1e-3
     )
-    # lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max = 6)
+    lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.1)
 
     # Define the loss function
     loss_fn = nn.TripletMarginLoss(margin=1.0)
@@ -118,7 +118,7 @@ def train():
     print(f"Model will be saved to: {folder_path}")
 
     # -- Training Loop --
-    num_epochs = 8
+    # num_epochs = 8
     retriever.train()
     for epoch in range(num_epochs):
         total_loss = 0.0
@@ -156,7 +156,7 @@ def train():
             progress_bar.set_postfix({'Loss': f'{loss.item():.4f}', 'Avg Loss': f'{total_loss/(batch_idx+1):.4f}'})
 
         # Update the learning rate
-        # lr_scheduler.step()
+        lr_scheduler.step()
 
         # Print epoch statistics
         avg_loss = total_loss / len(train_dataloader)
