@@ -3,7 +3,8 @@ import torch
 import os
 # from src.multimodal_retriever.retriever import Retriever
 
-DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
+# Remove hardcoded device - will be set dynamically in distributed training
+# DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 
 def save_model(model, base_path: str) -> str:
     """Save model state dictionary to a file with timestamp.

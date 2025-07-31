@@ -3,7 +3,6 @@ import torch.nn as nn
 from transformers import AutoImageProcessor, AutoModel
 from PIL import Image
 from typing import Union, List
-from src.utils.utils import DEVICE
 
 VISION_MODEL_NAME = "google/vit-base-patch16-224-in21k"
 
@@ -15,28 +14,29 @@ class VisionEncoder(nn.Module):
 
     def __init__(self, model_name=VISION_MODEL_NAME, hidden_dim=768, dropout=0.1):
         super().__init__()
-        self.image_processor = AutoImageProcessor.from_pretrained(model_name, device_map=DEVICE)
-        self.vision_model = AutoModel.from_pretrained(model_name, device_map=DEVICE)
-        
+        # Remove device_map to allow DDP to handle device placement
+        self.image_processor = AutoImageProcessor.from_pretrained(model_name)
+        self.vision_model = AutoModel.from_pretrained(model_name)
+
         # Additional processing layers after the vision transformer
-        self.post_processing = nn.Sequential(
-            nn.Linear(hidden_dim, hidden_dim * 2),
-            nn.LayerNorm(hidden_dim * 2),
-            nn.GELU(),
-            nn.Dropout(dropout),
-            nn.Linear(hidden_dim * 2, hidden_dim),
-            nn.LayerNorm(hidden_dim),
-            nn.Dropout(dropout)
-        )
-        
+        # self.post_processing = nn.Sequential(
+        #     nn.Linear(hidden_dim, hidden_dim * 2),
+        #     nn.LayerNorm(hidden_dim * 2),
+        #     nn.GELU(),
+        #     nn.Dropout(dropout),
+        #     nn.Linear(hidden_dim * 2, hidden_dim),
+        #     nn.LayerNorm(hidden_dim),
+        #     nn.Dropout(dropout)
+        # )
+
         # Learnable position embeddings for patch refinement
-        self.patch_refinement = nn.TransformerEncoderLayer(
-            d_model=hidden_dim,
-            nhead=8,
-            dim_feedforward=hidden_dim * 4,
-            dropout=dropout,
-            batch_first=True
-        )
+        # self.patch_refinement = nn.TransformerEncoderLayer(
+        #     d_model=hidden_dim,
+        #     nhead=8,
+        #     dim_feedforward=hidden_dim * 4,
+        #     dropout=dropout,
+        #     batch_first=True
+        # )
 
     def forward(self, images: Union[Image.Image, List[Image.Image]]) -> torch.Tensor:
         """
@@ -50,7 +50,9 @@ class VisionEncoder(nn.Module):
             images = [images]
 
         # The image processor can handle batch of images
-        inputs = self.image_processor(images=images, return_tensors="pt").to(DEVICE)
+        # Get current device from model parameters
+        device = next(self.parameters()).device
+        inputs = self.image_processor(images=images, return_tensors="pt").to(device)
 
         # Get the model's output
         outputs = self.vision_model(**inputs)
@@ -58,11 +60,12 @@ class VisionEncoder(nn.Module):
         # Get the last hidden state
         # Shape: (batch_size, 197, 768) for VIT-Base (196 patches + 1 CLS token per image)
         hidden_states = outputs.last_hidden_state
-        
+
         # Apply post-processing layers
-        processed_states = self.post_processing(hidden_states)
-        
+        # processed_states = self.post_processing(hidden_states)
+
         # Apply patch refinement transformer layer
-        refined_states = self.patch_refinement(processed_states)
-        
+        # refined_states = self.patch_refinement(processed_states)
+        refined_states = hidden_states
+
         return refined_states
