@@ -1,0 +1,816 @@
+[
+    {
+        "id": "public_test_1",
+        "image_id": "public_test_2_2",
+        "question": "\u0110\u00e2y l\u00e0 bi\u1ec3n b\u00e1o g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_2",
+        "image_id": "public_test_2_1",
+        "question": "Bi\u1ec3n b\u00e1o m\u00e0u xanh c\u00f3 g\u1ea1ch \u0111\u1ecf l\u00e0 bi\u1ec3n b\u00e1o g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            }
+        ]
+    },
+    {
+        "id": "public_test_3",
+        "image_id": "public_test_2_6",
+        "question": "Lo\u1ea1i xe n\u00e0o \u0111\u01b0\u1ee3c ph\u00e9p l\u01b0u th\u00f4ng tr\u00ean \u0111o\u1ea1n \u0111\u01b0\u1eddng n\u00e0y?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_4",
+        "image_id": "public_test_2_12",
+        "question": "Khi di chuy\u1ec3n tr\u00ean \u0111\u01b0\u1eddng cao t\u1ed1c, ph\u01b0\u01a1ng ti\u1ec7n giao th\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p di chuy\u1ec3n v\u01a1i t\u1ed1c \u0111\u1ed9 t\u1ed1i thi\u1ec3u l\u00e0 60 km/h v\u00e0 t\u1ed1c \u0111\u1ed9 t\u1ed1i \u0111a l\u00e0 80 km/h, \u0111\u00fang hay sai ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "47"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.27"
+            }
+        ]
+    },
+    {
+        "id": "public_test_5",
+        "image_id": "public_test_2_11",
+        "question": "H\u00e0ng \u0111\u01b0\u1eddng \u1edf ph\u00eda b\u00ean tay tr\u00e1i ch\u1ec9 d\u00e0nh cho xe \u00f4 t\u00f4 \u0111\u00fang kh\u00f4ng?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            }
+        ]
+    },
+    {
+        "id": "public_test_6",
+        "image_id": "public_test_2_7",
+        "question": "C\u00f3 bi\u1ec3n b\u00e1o ch\u1ec9 d\u1eabn \u1edf trong h\u00ecnh tr\u00ean kh\u00f4ng?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            }
+        ]
+    },
+    {
+        "id": "public_test_7",
+        "image_id": "public_test_2_5",
+        "question": "Bi\u1ec3n b\u00e1o tr\u00ean c\u1ea5m lo\u1ea1i xe n\u00e0o?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.4"
+            }
+        ]
+    },
+    {
+        "id": "public_test_8",
+        "image_id": "public_test_2_3",
+        "question": "Bi\u1ec3n h\u00ecnh tr\u00f2n c\u00f3 vi\u1ec1n \u0111\u1ecf v\u00e0 d\u1ea5u g\u1ea1ch tr\u00ean l\u00e0 bi\u1ec3n g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            }
+        ]
+    },
+    {
+        "id": "public_test_9",
+        "image_id": "public_test_2_8",
+        "question": "Bi\u1ec3n h\u00ecnh tr\u00f2n vi\u1ec1n \u0111\u1ecf c\u00f3 \u00fd ngh\u0129a l\u00e0 g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.27"
+            }
+        ]
+    },
+    {
+        "id": "public_test_10",
+        "image_id": "public_test_2_10",
+        "question": "\u00dd ngh\u0129a c\u00f3 bi\u1ec3n b\u00e1o tr\u00ean l\u00e0 g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_11",
+        "image_id": "public_test_2_4",
+        "question": "C\u00e1c lo\u1ea1i xe c\u01a1 gi\u1edbi kh\u00f4ng th\u1ec3 v\u01b0\u1ee3t nhau (k\u1ec3 c\u1ea3 xe \u0111\u01b0\u1ee3c \u01b0u ti\u00ean theo quy \u0111\u1ecbnh) tr\u00ean \u0111o\u1ea1n \u0111\u01b0\u1eddng n\u00e0y. \u0110\u00fang hay sai?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.4"
+            }
+        ]
+    },
+    {
+        "id": "public_test_12",
+        "image_id": "public_test_2_9",
+        "question": "\u0110\u1ed1i v\u1edbi l\u00e0n \u0111\u01b0\u1eddng \u1edf g\u1ea7n bi\u1ec3n hi\u1ec7u tr\u00ean h\u00ecnh tr\u00ean,xe \u0111\u1ea1p c\u00f3 \u0111\u01b0\u1ee3c l\u01b0u th\u00f4ng tr\u00ean l\u00e0n \u0111\u01b0\u1eddng n\u00e0y kh\u00f4ng?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            }
+        ]
+    },
+    {
+        "id": "public_test_13",
+        "image_id": "public_test_3_9",
+        "question": "\u0110\u00e2y l\u00e0 lo\u1ea1i bi\u1ec3n b\u00e1o g\u00ec ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            }
+        ]
+    },
+    {
+        "id": "public_test_14",
+        "image_id": "public_test_3_8",
+        "question": "C\u00f3 bao nhi\u00eau lo\u1ea1i bi\u1ec3n b\u00e1o kh\u00e1c nhau (c\u00f3 th\u1ec3 x\u00e1c \u0111\u1ecbnh \u0111\u01b0\u1ee3c n\u1ed9i dung bi\u1ec3n b\u00e1o) trong h\u00ecnh ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            }
+        ]
+    },
+    {
+        "id": "public_test_15",
+        "image_id": "public_test_3_6",
+        "question": "T\u1ed1c \u0111\u1ed9 di chuy\u1ec3n t\u1ed1i \u0111a tr\u00ean c\u1ea3 3 l\u00e0n \u0111\u01b0\u1eddng l\u00e0 bao nhi\u00eau ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.27"
+            }
+        ]
+    },
+    {
+        "id": "public_test_16",
+        "image_id": "public_test_3_7",
+        "question": "C\u00e1c bi\u1ec3n b\u00e1o trong h\u00ecnh \u0111\u01b0\u1ee3c \u0111\u1eb7t \u1edf lo\u1ea1i \u0111\u01b0\u1eddng n\u00e0o ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "47"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "46"
+            }
+        ]
+    },
+    {
+        "id": "public_test_17",
+        "image_id": "public_test_3_2",
+        "question": "N\u1ed9i dung c\u1ee7a bi\u1ec3n b\u00e1o n\u00e0y l\u00e0 g\u00ec ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            }
+        ]
+    },
+    {
+        "id": "public_test_18",
+        "image_id": "public_test_3_12",
+        "question": "\u0110\u00e2y l\u00e0 bi\u1ec3n b\u00e1o \"\u0110\u01b0\u1eddng c\u00f3 \u1ed5 g\u00e0, l\u1ed3i l\u00f5m\", \u0111\u00fang hay sai ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            }
+        ]
+    },
+    {
+        "id": "public_test_19",
+        "image_id": "public_test_3_13",
+        "question": "\"Bi\u1ec3n b\u00e1o n\u00e0y ch\u1ec9 c\u00f3 hi\u1ec7u l\u1ef1c v\u00e0o ng\u00e0y l\u1ebb.\", \u0111\u00fang hay sai ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.31"
+            }
+        ]
+    },
+    {
+        "id": "public_test_20",
+        "image_id": "public_test_3_4",
+        "question": "Bi\u1ec3n b\u00e1o n\u00e0y c\u00f3 t\u00e1c d\u1ee5ng ch\u1ec9 cho ng\u01b0\u1eddi tham gia giao th\u00f4ng bi\u1ebft s\u1ed1 l\u01b0\u1ee3ng l\u00e0n \u0111\u01b0\u1eddng tr\u00ean m\u1eb7t \u0111\u01b0\u1eddng v\u00e0 h\u01b0\u1edbng \u0111i tr\u00ean m\u1ed7i l\u00e0n \u0111\u01b0\u1eddng theo v\u1ea1ch k\u1ebb \u0111\u01b0\u1eddng, \u0111\u00fang hay sai ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            }
+        ]
+    },
+    {
+        "id": "public_test_21",
+        "image_id": "public_test_3_10",
+        "question": "C\u00f3 bao nhi\u00eau bi\u1ec3n b\u00e1o c\u1ea5m trong h\u00ecnh ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.4"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.31"
+            }
+        ]
+    },
+    {
+        "id": "public_test_22",
+        "image_id": "public_test_3_5",
+        "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh l\u00e0 lo\u1ea1i bi\u1ec3n b\u00e1o g\u00ec ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_23",
+        "image_id": "public_test_3_3",
+        "question": "Bi\u1ec3n b\u00e1o c\u00f3 h\u00ecnh tr\u00f2n, n\u1ec1n xanh, vi\u1ec1n \u0111\u1ecf thu\u1ed9c lo\u1ea1i bi\u1ec3n b\u00e1o g\u00ec ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            }
+        ]
+    },
+    {
+        "id": "public_test_24",
+        "image_id": "public_test_3_3",
+        "question": "N\u1ed9i dung c\u1ee7a bi\u1ec3n b\u00e1o c\u00f3 h\u00ecnh tr\u00f2n, n\u1ec1n xanh, vi\u1ec1n \u0111\u1ecf trong h\u00ecnh l\u00e0 g\u00ec ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            }
+        ]
+    },
+    {
+        "id": "public_test_25",
+        "image_id": "public_test_3_11",
+        "question": "N\u1ed9i dung c\u1ee7a bi\u1ec3n b\u00e1o nguy hi\u1ec3m \u1edf trong h\u00ecnh tr\u00ean l\u00e0 g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.2"
+            }
+        ]
+    },
+    {
+        "id": "public_test_26",
+        "image_id": "public_test_3_1",
+        "question": "\"\u0110o\u1ea1n \u0111\u01b0\u1eddng n\u00e0y c\u1ea5m xe t\u1ea3i c\u00f3 tr\u1ecdng t\u1ea3i l\u1edbn h\u01a1n 1,25 t\u1ea5n\", \u0111\u00fang hay sai ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_27",
+        "image_id": "public_test_3_1",
+        "question": "\"Xe \u0111\u1ea1p \u0111\u01b0\u1ee3c ph\u00e9p di chuy\u1ec3n tr\u00ean \u0111o\u1ea1n \u0111\u01b0\u1eddng n\u00e0y\", \u0111\u00fang hay sai ?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            }
+        ]
+    },
+    {
+        "id": "public_test_28",
+        "image_id": "public_test_4_6",
+        "question": "Bi\u1ec3n b\u00e1o giao th\u00f4ng c\u00f3 h\u00ecnh tam gi\u00e1c \u0111\u1ec1u, vi\u1ec1n \u0111\u1ecf, n\u1ec1n v\u00e0ng, c\u00f3 h\u00ecnh hai v\u1ea1ch song song thu h\u1eb9p \u1edf gi\u1eefa c\u00f3 \u00fd ngh\u0129a g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            }
+        ]
+    },
+    {
+        "id": "public_test_29",
+        "image_id": "public_test_4_1",
+        "question": "Theo n\u1ed9i dung tr\u00ean bi\u1ec3n ch\u1ec9 d\u1eabn, xe t\u1ea3i c\u00f3 tr\u1ecdng t\u1ea3i to\u00e0n b\u1ed9 cho ph\u00e9p tr\u00ean 1,5 t\u1ea5n \u0111\u01b0\u1ee3c ph\u00e9p ho\u1ea1t \u0111\u1ed9ng t\u1ea1i khu v\u1ef1c n\u1ed9i \u0111\u00f4 th\u00e0nh ph\u1ed1 v\u00e0o khung gi\u1edd n\u00e0o?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_30",
+        "image_id": "public_test_4_10",
+        "question": "Bi\u1ec3n b\u00e1o giao th\u00f4ng d\u01b0\u1edbi \u0111\u00e2y c\u00f3 \u00fd ngh\u0129a g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.23"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.24"
+            }
+        ]
+    },
+    {
+        "id": "public_test_31",
+        "image_id": "public_test_4_2",
+        "question": "Khi \u0111ang l\u00e1i xe tr\u00ean \u0111\u01b0\u1eddng, b\u1ea1n nh\u00ecn th\u1ea5y bi\u1ec3n b\u00e1o sau \u0111\u00e2y \u0111\u1eb7t \u1edf ph\u00eda tr\u01b0\u1edbc (bi\u1ec3n tam gi\u00e1c vi\u1ec1n \u0111\u1ecf, n\u1ec1n v\u00e0ng, c\u00f3 h\u00ecnh hai em nh\u1ecf n\u1eafm tay nhau). B\u1ea1n n\u00ean x\u1eed l\u00fd nh\u01b0 th\u1ebf n\u00e0o?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            }
+        ]
+    },
+    {
+        "id": "public_test_32",
+        "image_id": "public_test_4_9",
+        "question": "X\u1eed l\u00fd nh\u01b0 n\u00e0o khi g\u1eb7p bi\u1ec3n tr\u00ean?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "47"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "46"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            }
+        ]
+    },
+    {
+        "id": "public_test_33",
+        "image_id": "public_test_4_11",
+        "question": "Hi\u1ec7u l\u1ec7nh c\u1ee7a ng\u01b0\u1eddi \u0111i\u1ec1u khi\u1ec3n giao th\u00f4ng ph\u1ea3i \u0111\u01b0\u1ee3c \u01b0u ti\u00ean tr\u01b0\u1edbc \u0111\u00fang hay sai?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            }
+        ]
+    },
+    {
+        "id": "public_test_34",
+        "image_id": "public_test_4_7",
+        "question": "Xe 25 ch\u1ed7 ng\u1ed3i \u0111\u01b0\u1ee3c l\u01b0u th\u00f4ng tr\u00ean \u0111\u01b0\u1eddng n\u00e0y t\u1eeb 11 gi\u1edd s\u00e1ng \u0111\u1ebfn 3 gi\u1edd chi\u1ec1u \u0111\u00fang hay sai?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "41"
+            }
+        ]
+    },
+    {
+        "id": "public_test_35",
+        "image_id": "public_test_4_7",
+        "question": "T\u1ea5t c\u1ea3 ph\u01b0\u01a1ng ti\u1ec7n \u0111\u01b0\u1ee3c ph\u00e9p r\u1ebd ph\u1ea3i \u0111\u00fang hay sai?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            }
+        ]
+    },
+    {
+        "id": "public_test_36",
+        "image_id": "public_test_4_5",
+        "question": "Bi\u1ec3n b\u00e1o tr\u00ean c\u00f3 hi\u1ec7u l\u1ef1c \u0111\u1ebfn v\u1ecb tr\u00ed n\u00e0o?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            }
+        ]
+    },
+    {
+        "id": "public_test_37",
+        "image_id": "public_test_4_5",
+        "question": "Bi\u1ec3n b\u00e1o tr\u00ean c\u1ea5m \u0111\u1ed7 xe v\u00e0o c\u00e1c ng\u00e0y n\u00e0o?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.31"
+            }
+        ]
+    },
+    {
+        "id": "public_test_38",
+        "image_id": "public_test_4_5",
+        "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh c\u00f3 \u00fd ngh\u0129a g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            }
+        ]
+    },
+    {
+        "id": "public_test_39",
+        "image_id": "public_test_4_3",
+        "question": "Bi\u1ec3n b\u00e1o tr\u00ean c\u00f3 \u00fd ngh\u0129a l\u00e0 g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "36"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "47"
+            }
+        ]
+    },
+    {
+        "id": "public_test_40",
+        "image_id": "public_test_4_12",
+        "question": "Bi\u1ec3n \"Gi\u1eef kho\u1ea3ng c\u00e1ch an to\u00e0n\" c\u00f3 th\u1ec3 s\u1eed d\u1ee5ng ch\u1eef m\u00e0u v\u00e0ng n\u1ec1n \u0111en \u0111\u00fang hay sai?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "47"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "46"
+            }
+        ]
+    },
+    {
+        "id": "public_test_41",
+        "image_id": "public_test_4_4",
+        "question": "Xe m\u00e1y \u0111\u01b0\u1ee3c \u0111\u1ed7 tr\u00ean con \u0111\u01b0\u1eddng n\u00e0y \u0111\u00fang hay sai?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.31"
+            }
+        ]
+    },
+    {
+        "id": "public_test_42",
+        "image_id": "public_test_4_8",
+        "question": "C\u00e1c lo\u1ea1i xe \u0111\u01b0\u1ee3c d\u1eebng v\u00e0 \u0111\u1ed7 v\u00e0o l\u00fac 12 gi\u1edd tr\u01b0a \u0111\u00fang hay sai?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_43",
+        "image_id": "public_test_5_1",
+        "question": "Bi\u1ec3n \"C\u1ea5m xe \u00f4 t\u00f4 kh\u00e1ch v\u00e0 xe \u00f4 t\u00f4 t\u1ea3i\" c\u00f3 hi\u1ec7u l\u1ef1c trong kho\u1ea3ng th\u1eddi gian n\u00e0o?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_44",
+        "image_id": "public_test_5_3",
+        "question": "\u0110\u00e2y l\u00e0 lo\u1ea1i bi\u1ec3n b\u00e1o g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "47"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "46"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "P.3"
+            }
+        ]
+    },
+    {
+        "id": "public_test_45",
+        "image_id": "public_test_5_11",
+        "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh b\u00ean c\u00f3 \u00fd ngh\u0129a l\u00e0 g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.2"
+            }
+        ]
+    },
+    {
+        "id": "public_test_46",
+        "image_id": "public_test_5_8",
+        "question": "Ph\u01b0\u01a1ng ti\u1ec7n giao th\u00f4ng n\u00e0o sau \u0111\u00e2y \u0111\u01b0\u1ee3c ch\u1ea1y t\u1ed1c \u0111\u1ed9 tr\u00ean 50 km/h?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.27"
+            }
+        ]
+    },
+    {
+        "id": "public_test_47",
+        "image_id": "public_test_5_9",
+        "question": "C\u00e1c bi\u1ec3n b\u00e1o trong h\u00ecnh b\u00ean thu\u1ed9c lo\u1ea1i bi\u1ec3n b\u00e1o n\u00e0o?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "28"
+            }
+        ]
+    },
+    {
+        "id": "public_test_48",
+        "image_id": "public_test_5_10",
+        "question": "Bi\u1ec3n b\u00e1o \"C\u1ea5m xe \u00f4 t\u00f4 t\u1ea3i c\u00f3 kh\u1ed1i l\u01b0\u1ee3ng chuy\u00ean ch\u1edf l\u1edbn h\u01a1n 2.5T\" c\u00f3 hi\u1ec7u l\u1ef1c c\u1ea5m \u0111\u1ed1i v\u1edbi c\u1ea3 m\u00e1y k\u00e9o v\u00e0 c\u00e1c xe m\u00e1y chuy\u00ean d\u00f9ng \u0111i v\u00e0o \u0111o\u1ea1n \u0111\u01b0\u1eddng \u0111\u1eb7t bi\u1ec3n. \u0110i\u1ec1u \u0111\u00f3 l\u00e0 \u0111\u00fang hay sai?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_49",
+        "image_id": "public_test_5_4",
+        "question": "Trong h\u00ecnh b\u00ean, xe \u00f4 t\u00f4 \u0111\u01b0\u1ee3c ph\u00e9p \u0111i v\u00e0o m\u1ea5y l\u00e0n \u0111\u01b0\u1eddng (kh\u00f4ng \u00e1p d\u1ee5ng v\u1edbi c\u00e1c xe chuy\u1ec3n l\u00e0n \u0111\u1ec3 ra v\u00e0o ho\u1eb7c d\u1eebng, \u0111\u1ed7 b\u00ean \u0111\u01b0\u1eddng)? ",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            }
+        ]
+    },
+    {
+        "id": "public_test_50",
+        "image_id": "public_test_5_2",
+        "question": "Bi\u1ec3n b\u00e1o xu\u1ea5t hi\u1ec7n trong h\u00ecnh b\u00ean l\u00e0 c\u00f3 \u00fd ngh\u0129a l\u00e0 g\u00ec?",
+        "relevant_articles": [
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "22"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "32"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.2"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.24"
+            },
+            {
+                "law_id": "QCVN 41:2024/BGTVT",
+                "article_id": "B.23"
+            }
+        ]
+    }
+]

@@ -77,6 +77,11 @@ def train_worker(rank, world_size):
 
     # Initialize Comet ML experiment tracking only on rank 0
     experiment = None
+    learning_rate = 1e-4
+    batch_size = 3072
+    num_epochs = 3
+    margin = 0.5
+    num_gpus = world_size
     if rank == 0:
         experiment = Experiment(
             api_key=os.getenv("COMET_API_KEY"),
@@ -85,12 +90,11 @@ def train_worker(rank, world_size):
         )
         num_epochs = 3
         experiment.log_parameters({
-            "projection_dim": 1024,
-            "learning_rate": 1e-5,
-            "batch_size": 3072,
+            "learning_rate": learning_rate,
+            "batch_size": batch_size,
             "num_epochs": num_epochs,
-            "margin": 1.0,
-            "num_gpus": world_size,
+            "margin": margin,
+            "num_gpus": num_gpus,
         })
 
     # Load evaluation data (only on rank 0)
@@ -123,12 +127,12 @@ def train_worker(rank, world_size):
     # Only train the parameters of the fusion and output projection layers
     optimizer = torch.optim.Adam(
         list(retriever.module.fusion_module.parameters()) + list(retriever.module.output_projection.parameters()),
-        lr=1e-4
+        lr=learning_rate
     )
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.1)
 
     # Define the loss function
-    loss_fn = nn.TripletMarginLoss(margin=1.0)
+    loss_fn = nn.TripletMarginLoss(margin=margin)
 
     # Setup the dataset
     if rank == 0:
@@ -147,7 +151,7 @@ def train_worker(rank, world_size):
     )
 
     # Adjust batch size for distributed training
-    batch_size_per_gpu = 3072 // world_size
+    batch_size_per_gpu = batch_size // world_size
     train_dataloader = torch.utils.data.DataLoader(
         dataset,
         batch_size=batch_size_per_gpu,
@@ -245,7 +249,7 @@ def train_worker(rank, world_size):
                 test_data=public_test,
                 document_embeddings=document_embeddings,
                 image_base_path=image_base_path,
-                k=5,
+                k=10,
                 similarity_threshold=0.7,
                 device=device
             )

@@ -1,0 +1,1060 @@
+[
+  {
+    "id": "public_test_51",
+    "image_id": "public_test_5_6",
+    "question": "Trong t\u1ea5t c\u1ea3 bi\u1ec3n b\u00e1o trong h\u00ecnh b\u00ean, h\u00e3y cho bi\u1ebft xe g\u1eafn m\u00e1y b\u1ecb c\u1ea5m \u0111i th\u1eb3ng trong kho\u1ea3ng th\u1eddi gian n\u00e0o?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.4"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "23:00 - 04:00",
+      "B": "04:00 - 09:00",
+      "C": "09:00 - 16:00",
+      "D": "16:00 - 23:00"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_52",
+    "image_id": "public_test_5_12",
+    "question": "C\u00e1c bi\u1ec3n b\u00e1o xu\u1ea5t hi\u1ec7n trong h\u00ecnh b\u00ean l\u00e0 lo\u1ea1i bi\u1ec3n b\u00e1o g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "32"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "36"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Bi\u1ec3n b\u00e1o ch\u1ec9 d\u1eabn v\u00e0 bi\u1ec3n hi\u1ec7u l\u1ec7nh",
+      "B": "Bi\u1ec3n b\u00e1o c\u1ea5m v\u00e0 bi\u1ec3n ch\u1ec9 d\u1eabn",
+      "C": "Bi\u1ec3n b\u00e1o hi\u1ec7u l\u1ec7nh v\u00e0 bi\u1ec3n b\u00e1o c\u1ea5m",
+      "D": "C\u1ea3 A, B, v\u00e0 C \u0111\u1ec1u sai."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_53",
+    "image_id": "public_test_5_11",
+    "question": "\u0110\u00e2y l\u00e0 bi\u1ec3n b\u00e1o c\u1ea5m v\u01b0\u1ee3t. \u0110\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.25"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_54",
+    "image_id": "public_test_5_7",
+    "question": "\"Bi\u1ec3n c\u00f3 vi\u1ec1n \u0111\u1ecf, n\u1ec1n tr\u1eafng, h\u00ecnh v\u1ebd m\u00e0u \u0111en trong h\u00ecnh b\u00ean l\u00e0 bi\u1ec3n b\u00e1o c\u1ea5m r\u1ebd ph\u1ea3i\". \u0110\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.23"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_55",
+    "image_id": "public_test_5_5",
+    "question": "H\u01b0\u1edbng \u0111i \u0111\u1ebfn Th\u00e0nh ph\u1ed1 Vinh l\u00e0 h\u01b0\u1edbng \u0111i th\u1eb3ng, \u0111\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "32"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "E.14"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_56",
+    "image_id": "public_test_6_12",
+    "question": "T\u1ed1c \u0111\u1ed9 n\u00e0o sau \u0111\u00e2y m\u00e0 ng\u01b0\u1eddi l\u00e1i xe di chuy\u1ec3n tr\u00ean \u0111o\u1ea1n \u0111\u01b0\u1eddng trong \u1ea3nh l\u00e0 kh\u00f4ng ph\u1ea1p lu\u1eadt?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "46"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": 110,
+      "B": 50,
+      "C": 130,
+      "D": 90
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_57",
+    "image_id": "public_test_6_9",
+    "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh c\u00f3 \u00fd ngh\u0129a g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.23"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "C\u1ea5m r\u1ebd tr\u00e1i.",
+      "B": "C\u1ea5m quay \u0111\u1ea7u xe.",
+      "C": "C\u1ea5m r\u1ebd ph\u1ea3i.",
+      "D": "Ch\u1ec9 \u0111\u01b0\u1ee3c \u0111i th\u1eb3ng."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_58",
+    "image_id": "public_test_6_6",
+    "question": "Tr\u00ean ph\u1ea7n \u0111\u01b0\u1eddng c\u00f3 \u0111\u1eb7t bi\u1ec3n b\u00e1o tr\u00ean th\u00ec \u0111\u1ed1i t\u01b0\u1ee3ng tham gia giao th\u00f4ng n\u00e0o sau \u0111\u00e2y kh\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p \u0111i l\u1ea1i?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.12"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Ng\u01b0\u1eddi l\u00e1i xe \u00f4 t\u00f4.",
+      "B": "Ng\u01b0\u1eddi \u0111i b\u1ed9.",
+      "C": "Ng\u01b0\u1eddi l\u00e1i xe g\u1eafn m\u00e1y.",
+      "D": "T\u1ea5t c\u1ea3 nh\u1eefng ng\u01b0\u1eddi tham gia giao th\u00f4ng v\u1edbi c\u00e1c lo\u1ea1i ph\u01b0\u01a1ng ti\u1ec7n tr\u1eeb xe \u0111\u01b0\u1ee3c \u01b0u ti\u00ean theo quy \u0111\u1ecbnh."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_59",
+    "image_id": "public_test_6_15",
+    "question": "Bi\u1ec3n b\u00e1o trong \u1ea3nh c\u1ea3nh  b\u00e1o \u0111i\u1ec1u g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "28"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "C.21"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "\u0110\u01b0\u1eddng l\u1ed3i l\u00f5m.",
+      "B": "\u0110\u01b0\u1eddng c\u00f3 g\u1ed3 gi\u1ea3m t\u1ed1c.",
+      "C": "V\u00e1ch n\u00fai nguy hi\u1ec3m.",
+      "D": "\u0110\u01b0\u1eddng ng\u1ea7m."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_60",
+    "image_id": "public_test_6_7",
+    "question": "C\u00e1c bi\u1ec3n b\u00e1o trong \u1ea3nh thu\u1ed9c lo\u1ea1i bi\u1ec3n b\u00e1o g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "25"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "bi\u1ec3n hi\u1ec7u l\u1ec7nh.",
+      "B": "bi\u1ec3n b\u00e1o nguy hi\u1ec3m v\u00e0 c\u1ea3nh b\u00e1o.",
+      "C": "bi\u1ec3n b\u00e1o c\u1ea5m.",
+      "D": "bi\u1ec3n ch\u1ec9 d\u1eabn."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_61",
+    "image_id": "public_test_6_1",
+    "question": "Khi g\u1eb7p bi\u1ec3n b\u00e1o trong \u1ea3nh v\u00e0o ng\u00e0y l\u1ebb v\u1edbi bi\u1ec3n b\u00e1o b\u00ean tr\u00e1i ho\u1eb7c ng\u00e0y ch\u1eb5n v\u1edbi bi\u1ec3n b\u00e1o b\u00ean ph\u1ea3i, ng\u01b0\u1eddi \u0111i\u1ec1u khi\u1ec3n ph\u01b0\u01a1ng ti\u1ec7n kh\u00f4ng \u0111\u01b0\u1ee3c \u0111\u1ed7 xe \u1edf \u0111o\u1ea1n \u0111\u01b0\u1eddng \u0111\u00f3, \u0111\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.31"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_62",
+    "image_id": "public_test_6_10",
+    "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh l\u00e0 lo\u1ea1i bi\u1ec3n g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "36"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "E.14"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Bi\u1ec3n b\u00e1o c\u1ea5m.",
+      "B": "Bi\u1ec3n ch\u1ec9 d\u1eabn.",
+      "C": "Bi\u1ec3n b\u00e1o hi\u1ec7u l\u1ec7nh.",
+      "D": "Bi\u1ec3n c\u1ea3nh b\u00e1o nguy hi\u1ec3m."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_63",
+    "image_id": "public_test_6_11",
+    "question": "Theo c\u00e1c bi\u1ec3n ch\u1ec9 d\u1eabn tr\u00ean \u1ea3nh th\u00ec n\u00fat giao t\u1ea1i ng\u00e3 t\u01b0 \u0110\u1ea1i L\u1ed9c c\u00f3 \u0111\u1eb7c \u0111i\u1ec3m g\u00ec? ",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "28"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "C.6"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "36"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "E.14"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Ng\u00e3 t\u01b0 c\u00f3 \u0111\u00e8n t\u00edn hi\u1ec7u giao th\u00f4ng.",
+      "B": "Ng\u00e3 t\u01b0 giao v\u1edbi \u0111\u01b0\u1eddng \u01b0u ti\u00ean",
+      "C": "Ng\u00e3 t\u01b0 giao v\u1edbi \u0111\u01b0\u1eddng nh\u00e1nh",
+      "D": "Ng\u00e3 t\u01b0 c\u00f3 v\u00f2ng xuy\u1ebfn."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_64",
+    "image_id": "public_test_6_2",
+    "question": "Bi\u1ec3n c\u1ea3nh b\u00e1o trong \u1ea3nh c\u1ea3nh b\u00e1o \u0111i\u1ec1u v\u1ec1 \u0111o\u1ea1n \u0111\u01b0\u1eddng ph\u00eda tr\u01b0\u1edbc g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "28"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "C.3"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "\u0110o\u1ea1n \u0111\u01b0\u1eddng \u0111\u00f4i t\u1ea1m th\u1eddi ho\u1eb7c \u0111o\u1ea1n \u0111\u01b0\u1eddng c\u00f3 chi\u1ec1u xe \u0111i v\u00e0 v\u1ec1 \u0111i chung.",
+      "B": "\u0110o\u1ea1n \u0111\u01b0\u1eddng b\u1ecb thu h\u1eb9p c\u1ea3 hai b\u00ean.",
+      "C": "\u0110o\u1ea1n \u0111\u01b0\u1eddng b\u1ecb thu h\u1eb9p v\u1ec1 ph\u00eda tr\u00e1i.",
+      "D": "\u0110o\u1ea1n \u0111\u01b0\u1eddng b\u1ecb thu h\u1eb9p v\u1ec1 ph\u00eda ph\u1ea3i."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_65",
+    "image_id": "public_test_6_8",
+    "question": "Xe \u00f4 t\u00f4 \u0111i v\u00e0o 2 l\u00e0n b\u00ean ph\u1ea3i c\u1ee7a \u0111o\u1ea1n \u0111\u01b0\u1eddng tr\u00ean \u1ea3nh c\u00f3 b\u1ecb ph\u1ea1m lu\u1eadt kh\u00f4ng?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B3; 41"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "F.10"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "C\u00f3, do c\u00f3 bi\u1ec3n b\u00e1o c\u1ea5m xe \u00f4 t\u00f4.",
+      "B": "Kh\u00f4ng, xe \u00f4 t\u00f4 \u0111\u01b0\u1ee3c ch\u1ea1y v\u00e0o 2 l\u00e0n \u0111\u00f3 v\u1edbi v\u1eadn t\u1ed1c 60km/h.",
+      "C": "T\u00f9y v\u00e0o th\u1eddi gian, xe \u00f4 t\u00f4 s\u1ebd ph\u1ea1p lu\u1eadt n\u1ebfu \u0111i v\u00e0o \u0111o\u1ea1n \u0111\u01b0\u1eddng \u0111\u00f3 t\u1eeb 6:00-22:00.",
+      "D": "Kh\u00f4ng, xe \u00f4 t\u00f4 v\u1eabn c\u00f3 th\u1ec3 ch\u1ea1y v\u00e0o 2 l\u00e0n \u0111\u00f3 trong t\u00ecnh hu\u1ed1ng c\u1ea5p b\u00e1ch b\u1ea5t k\u1ec3 th\u1eddi gian."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_66",
+    "image_id": "public_test_6_13",
+    "question": "Ng\u01b0\u1eddi \u0111i\u1ec1u khi\u1ec3n xe \u00f4 t\u00f4 con \u0111\u01b0\u1ee3c ph\u00e9p d\u1eebng \u0111\u1ed7 xe t\u1ea1i \u0111o\u1ea1n \u0111\u01b0\u1eddng trong \u1ea3nh, \u0111\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.30"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_67",
+    "image_id": "public_test_6_3",
+    "question": "Ng\u01b0\u1eddi \u0111i\u1ec1u khi\u1ec3n ph\u01b0\u01a1ng ti\u1ec7n ph\u1ea3i gi\u1ea3m t\u1ed1c \u0111\u1ed9 khi \u0111i qua \u0111o\u1ea1n \u0111\u01b0\u1eddng n\u00e0y, \u0111\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "28"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "C.45"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_68",
+    "image_id": "public_test_6_5",
+    "question": "Ng\u01b0\u1eddi \u0111i\u1ec1u khi\u1ec3n xe m\u00e1y \u0111\u01b0\u1ee3c r\u1ebd ph\u1ea3i v\u00e0o \u0111\u01b0\u1eddng H\u1ed3ng H\u00e0 l\u00fac 10 gi\u1edd s\u00e1ng, \u0111\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.23"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "41"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "F10"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_69",
+    "image_id": "public_test_6_4",
+    "question": "Xe \u00f4 t\u00f4 t\u1ea3i v\u1edbi t\u1ea3i tr\u1ecdng \u202f<3,5\u202ft ch\u1ec9 \u0111\u01b0\u1ee3c ph\u00e9p \u0111i \u1edf l\u00e0n n\u00e0o v\u00e0 gi\u1edbi h\u1ea1n t\u1ed1c \u0111\u1ed9 t\u1ed1i \u0111a l\u00e0 bao nhi\u00eau?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.27c"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "32"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "D.14"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "L\u00e0n ph\u1ea3i \u2013 t\u1ed1i \u0111a 40\u202fkm/h.",
+      "B": "L\u00e0n gi\u1eefa \u2013 t\u1ed1i \u0111a 80\u202fkm/h.",
+      "C": "L\u00e0n tr\u00e1i \u2013 t\u1ed1i \u0111a 90\u202fkm/h.",
+      "D": "L\u00e0n gi\u1eefa \u2013 t\u1ed1i \u0111a 60\u202fkm/h."
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_70",
+    "image_id": "public_test_6_14",
+    "question": "Ng\u01b0\u1eddi l\u00e1i xe \u0111i tr\u00ean cao t\u1ed1c \u0111\u1ebf g\u1ea7n \u0111o\u1ea1n \u0111\u01b0\u1eddng tr\u00ean \u1ea3nh m\u00e0 mu\u1ed1n ra kh\u1ecfi cao t\u1ed1c \u0111\u1ec3 \u0111i v\u00e0o tuy\u1ebfn tr\u00e1nh Hu\u1ebf th\u00ec ph\u1ea3i \u0111i v\u00e0o l\u00e0n \u0111\u01b0\u1eddng b\u00ean ph\u1ea3i v\u00e0 t\u00ecm \u0111\u01b0\u1eddng ra \u0111\u1ec3 ra kh\u1ecfi cao t\u1ed1c, \u0111\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "46"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_71",
+    "image_id": "public_test_7_15",
+    "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh c\u00f3 \u00fd ngh\u0129a nh\u01b0 th\u1ebf n\u00e0o?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.13"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "C\u1ea5m xe ng\u01b0\u1eddi k\u00e9o, \u0111\u1ea9y",
+      "B": "C\u1ea5m xe k\u00e9o r\u01a1-mo\u00f3c",
+      "C": "C\u1ea5m xe \u0111\u1ea1p th\u1ed3",
+      "D": "C\u1ea5m xe s\u01a1-mi r\u01a1-mo\u00f3c"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_72",
+    "image_id": "public_test_7_13",
+    "question": "Hai bi\u1ec3n b\u00e1o trong h\u00ecnh b\u00e1o hi\u1ec7u g\u00ec cho ng\u01b0\u1eddi l\u00e1i xe?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "28"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "C.45"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "C.1"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Chu\u1ea9n b\u1ecb \u0111\u1ebfn ch\u1ed7 ngo\u1eb7t nguy hi\u1ec3m b\u00ean tr\u00e1i, ph\u01b0\u01a1ng ti\u1ec7n tham gia giao th\u00f4ng l\u01b0u th\u00f4ng b\u00ecnh th\u01b0\u1eddng",
+      "B": "Chu\u1ea9n b\u1ecb \u0111\u1ebfn ch\u1ed7 ngo\u1eb7t nguy hi\u1ec3m b\u00ean tr\u00e1i, y\u00eau c\u1ea7u ph\u01b0\u01a1ng ti\u1ec7n tham gia giao th\u00f4ng \u0111i ch\u1eadm",
+      "C": "Chu\u1ea9n b\u1ecb \u0111\u1ebfn ch\u1ed7 ngo\u1eb7t nguy hi\u1ec3m b\u00ean ph\u1ea3i, y\u00eau c\u1ea7u ph\u01b0\u01a1ng ti\u1ec7n tham gia giao th\u00f4ng \u0111i ch\u1eadm",
+      "D": "Chu\u1ea9n b\u1ecb \u0111\u1ebfn ch\u1ed7 ngo\u1eb7t nguy hi\u1ec3m b\u00ean ph\u1ea3i, ph\u01b0\u01a1ng ti\u1ec7n tham gia giao th\u00f4ng l\u01b0u th\u00f4ng b\u00ecnh th\u01b0\u1eddng"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_73",
+    "image_id": "public_test_7_2",
+    "question": "Khi nh\u00ecn th\u1ea5y bi\u1ec3n b\u00e1o trong h\u00ecnh, t\u00e0i x\u1ebf c\u1ea7n x\u1eed l\u00ed nh\u01b0 th\u1ebf n\u00e0o?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "36"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "E.48"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Ch\u1ee7 \u0111\u1ed9ng gi\u1ea3m t\u1ed1c \u0111\u1ed9",
+      "B": "Ch\u00fa \u00fd quan s\u00e1t xung quanh",
+      "C": "Chu\u1ea9n b\u1ecb phanh v\u00e0 gi\u1eef kho\u1ea3ng c\u00e1ch an to\u00e0n",
+      "D": "C\u1ea3 3 \u0111\u00e1p tr\u00ean \u0111\u1ec1u \u0111\u00fang"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_74",
+    "image_id": "public_test_7_11",
+    "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh cho ta bi\u1ebft \u0111i\u1ec1u g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "36"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "E.42"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Ch\u1ec9 d\u1eabn nh\u1eefng n\u01a1i c\u00f3 th\u1ec3 tham quan",
+      "B": "C\u00e1c th\u00f4ng tin v\u1ec1 c\u00e2y c\u1ea7u ",
+      "C": "Ch\u1ec9 d\u1eabn \u0111\u1ecba gi\u1edbi h\u00e0nh ch\u00ednh gi\u1eefa c\u00e1c t\u1ec9nh, huy\u1ec7n, th\u00e0nh ph\u1ed1",
+      "D": "Ch\u1ec9 d\u1eabn ch\u1ed7 d\u1eebng \u0111\u1ed7 xe bu\u00fdt cho kh\u00e1ch l\u00ean xu\u1ed1ng"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_75",
+    "image_id": "public_test_7_8",
+    "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh c\u00f3 \u00fd ngh\u0129a nh\u01b0 th\u1ebf n\u00e0o?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.17"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "B\u00e1o h\u1ea1n ch\u1ebf chi\u1ec1u cao c\u1ee7a xe",
+      "B": "B\u00e1o h\u1ea1n ch\u1ebf chi\u1ec1u d\u00e0i c\u1ee7a xe",
+      "C": "B\u00e1o h\u1ea1n ch\u1ebf chi\u1ec1u ngang c\u1ee7a xe",
+      "D": "C\u1ef1 ly t\u1ed1i thi\u1ec3u gi\u1eefa hai xe"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_76",
+    "image_id": "public_test_7_9",
+    "question": "C\u00e1c ph\u01b0\u01a1ng ti\u1ec7n tham gia giao th\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p d\u1eebng xe t\u1ea1i \u0111o\u1ea1n \u0111\u01b0\u1eddng. \u0110\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.30"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_77",
+    "image_id": "public_test_7_5",
+    "question": "Lo\u1ea1i ph\u01b0\u01a1ng ti\u1ec7n n\u00e0o kh\u00f4ng \u0111\u01b0\u1ee3c tham gia l\u01b0u th\u00f4ng tr\u00ean l\u00e0n \u0111\u01b0\u1eddng ch\u00ednh gi\u1eefa?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.27"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Xe \u00f4 t\u00f4",
+      "B": "Xe t\u1ea3i",
+      "C": "Xe m\u00e1y",
+      "D": "Xe bu\u00fdt"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_78",
+    "image_id": "public_test_7_6",
+    "question": "Khi nh\u00ecn th\u1ea5y bi\u1ec3n b\u00e1o tr\u00ean, mu\u1ed1n \u0111i \u0111\u1ebfn Ch\u00e1nh An ph\u1ea3i \u0111i theo h\u01b0\u1edbng n\u00e0o?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "36"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "E.14"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "\u0110i th\u1eb3ng ",
+      "B": "\u0110i theo h\u01b0\u1edbng ng\u01b0\u1ee3c l\u1ea1i",
+      "C": "R\u1ebd ph\u1ea3i",
+      "D": "R\u1ebd tr\u00e1i"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_79",
+    "image_id": "public_test_7_1",
+    "question": "N\u1ed9i dung c\u1ee7a bi\u1ec3n b\u00e1o trong h\u00ecnh l\u00e0 g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "47"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Ch\u1ec9 d\u1eabn b\u1eaft \u0111\u1ea7u \u0111\u01b0\u1eddng cao t\u1ed1c c\u00f9ng v\u1edbi gi\u00e1 tr\u1ecb t\u1ed1c \u0111\u1ed9 h\u1ea1n ch\u1ebf, t\u1ed1c \u0111\u1ed9 t\u1ed1i \u0111a",
+      "B": "Ch\u1ec9 d\u1eabn b\u1eaft \u0111\u1ea7u \u0111\u01b0\u1eddng cao t\u1ed1c ph\u00e2n l\u00e0n \u0111\u01b0\u1eddng c\u00f3 t\u1ed1c \u0111\u1ed9 kh\u00e1c nhau",
+      "C": "Ch\u1ec9 d\u1eabn \u0111i\u1ec3m k\u1ebft th\u00fac c\u1ee7a \u0111\u01b0\u1eddng cao t\u1ed1c",
+      "D": "Ch\u1ec9 d\u1eabn \u0111\u1ecba \u0111i\u1ec3m v\u00e0 ph\u01b0\u01a1ng h\u01b0\u1edbng d\u00f9ng \u0111\u1ec3 ch\u1ec9 d\u1eabn \u0111\u1ecba danh n\u01a1i \u0111\u1ebfn "
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_80",
+    "image_id": "public_test_7_3",
+    "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh l\u00e0 bi\u1ec3n b\u00e1o g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "36"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "E.19"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Bi\u1ec3n b\u00e1o ch\u1ec9 d\u1eabn \u0111\u1ecba gi\u1edbi",
+      "B": "Bi\u1ec3n b\u00e1o ch\u1ec9 d\u1eabn \u0111\u1ecba gi\u1edbi tr\u00ean tuy\u1ebfn \u0111\u01b0\u1eddng \u0111\u1ed1i ngo\u1ea1i",
+      "C": "Bi\u1ec3n b\u00e1o b\u1eaft \u0111\u1ea7u khu v\u1ef1c \u0111\u00f4ng d\u00e2n c\u01b0",
+      "D": "Bi\u1ec3n b\u00e1o ch\u1ec9 d\u1eabn \u0111\u1ecba \u0111i\u1ec3m"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_81",
+    "image_id": "public_test_7_14",
+    "question": "Bi\u1ec3n b\u00e1o tr\u00ean cho ch\u00fang ta bi\u1ebft \u0111i\u1ec1u g\u00ec?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "32"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "D.17"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Chu\u1ea9n b\u1ecb \u0111\u1ebfn th\u00e0nh ph\u1ed1",
+      "B": "C\u00f3 \u0111\u1ecba danh l\u1ecbch s\u1eed, danh lam th\u1eafng c\u1ea3nh ph\u00eda tr\u01b0\u1edbc",
+      "C": "B\u1eaft \u0111\u1ea7u khu \u0111\u00f4ng d\u00e2n c\u01b0",
+      "D": "C\u00f3 khu v\u1ef1c c\u00f3 th\u1ec3 tham quan ph\u00eda tr\u01b0\u1edbc"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_82",
+    "image_id": "public_test_7_12",
+    "question": "Xe m\u00e1y \u0111\u01b0\u1ee3c ph\u00e9p l\u01b0u th\u00f4ng v\u1edbi t\u1ed1c \u0111\u1ed9 100 km/h tr\u00ean \u0111o\u1ea1n \u0111\u01b0\u1eddng ph\u00eda tr\u01b0\u1edbc. \u0110\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "47"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_83",
+    "image_id": "public_test_7_7",
+    "question": "C\u00e1c ph\u01b0\u01a1ng ti\u1ec7n giao th\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p d\u1eebng xe tr\u00ean \u0111o\u1ea1n \u0111\u01b0\u1eddng n\u00e0y. \u0110\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.31"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_84",
+    "image_id": "public_test_7_4",
+    "question": "\u0110o\u1ea1n \u0111\u01b0\u1eddng ph\u00eda tr\u01b0\u1edbc c\u1ea5m \u0111i ng\u01b0\u1ee3c chi\u1ec1u. \u0110\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.2"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_85",
+    "image_id": "public_test_7_10",
+    "question": "Xe m\u00e1y g\u1eb7p \u0111\u00e8n \u0111\u1ecf c\u00f3 bi\u1ec3n b\u00e1o n\u00e0y \u0111\u01b0\u1ee3c ph\u00e9p r\u1ebd ph\u1ea3i. \u0110\u00fang hay sai?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "41"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "F.11"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_86",
+    "image_id": "public_test_8_7",
+    "question": "Khi tham gia giao th\u00f4ng, g\u1eb7p nh\u1eefng bi\u1ec3n b\u00e1o n\u00e0y, h\u00e3y cho bi\u1ebft nh\u1eefng bi\u1ec3n b\u00e1o n\u00e0y thu\u1ed9c bi\u1ec3n b\u00e1o n\u00e0o ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "38"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Bi\u1ec3n b\u00e1o ch\u1ec9 d\u1eabn",
+      "B": "Bi\u1ec3n b\u00e1o nguy hi\u1ec3m v\u00e0 c\u1ea3nh b\u00e1o",
+      "C": "Bi\u1ec3n b\u00e1o c\u1ea5m",
+      "D": "Bi\u1ec3n b\u00e1o hi\u1ec7u l\u1ec7nh"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_87",
+    "image_id": "public_test_8_5",
+    "question": "Khi \u0111i\u1ec1u khi\u1ec3n ph\u01b0\u01a1ng ti\u1ec7n tham gia giao th\u00f4ng, tr\u00ean \u0111\u01b0\u1eddng cao t\u1ed1c c\u00f3 nh\u1eefng bi\u1ec3n b\u00e1o n\u00e0y th\u00ec ng\u01b0\u1eddi tham gia \u0111\u01b0\u1ee3c ph\u00e9p l\u00e0m g\u00ec ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "47"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Gi\u1ea3m t\u1ed1c \u0111\u1ed9, ch\u00fa \u00fd quan s\u00e1t",
+      "B": "Cho ph\u00e9p \u0111\u1ed7 xe c\u00e1ch nhau 5m.",
+      "C": "Kh\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p d\u1eebng xe",
+      "D": "\u0110\u01b0\u1ee3c d\u1eebng xe c\u00e1ch bi\u1ec3n b\u00e1o 5m"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_88",
+    "image_id": "public_test_8_10",
+    "question": "Bi\u1ec3n b\u00e1o trong h\u00ecnh th\u01b0\u1eddng \u0111\u01b0\u1ee3c \u0111\u1eb7t \u1edf \u0111\u00e2u ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "47"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Trong th\u00e0nh ph\u1ed1, th\u1ecb x\u00e3",
+      "B": "\u1ede n\u00f4ng th\u00f4n",
+      "C": "\u1ede \u0111\u01b0\u1eddng cao t\u1ed1c",
+      "D": "\u1ede m\u1ecdi n\u01a1i"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_89",
+    "image_id": "public_test_8_8",
+    "question": "Bi\u1ec3n n\u00e0o b\u00e1o hi\u1ec7u kho\u1ea3ng c\u00e1ch th\u1ef1c t\u1ebf t\u1eeb n\u01a1i \u0111\u1eb7t bi\u1ec3n \u0111\u1ebfn n\u01a1i c\u1ea7n c\u1ef1 ly t\u1ed1i thi\u1ec3u gi\u1eefa hai xe?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.21"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "41"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "F.2"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Bi\u1ec3n 1",
+      "B": "Bi\u1ec3n 2",
+      "C": "C\u1ea3 2 bi\u1ec3n",
+      "D": "Kh\u00f4ng c\u00f3 bi\u1ec3n n\u00e0o"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_90",
+    "image_id": "public_test_8_1",
+    "question": "Bi\u1ec3n b\u00e1o n\u00e0y cho ph\u00e9p ch\u1ea1y ng\u01b0\u1ee3c chi\u1ec1u v\u1edbi \u0111i\u1ec1u ki\u1ec7n l\u00e0 xe m\u00e1y ph\u1ea3i ch\u1ea1y ch\u1eadm l\u00e0 \u0111\u00fang hay sai ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.02"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_91",
+    "image_id": "public_test_8_11",
+    "question": "Trong h\u00ecnh tr\u00ean chi\u1ebfc xe \u00f4 t\u00f4 \u0111\u00e3 vi ph\u1ea1m ph\u00e1p lu\u1eadt g\u00ec trong giao th\u00f4ng \u0111\u01b0\u1eddng b\u1ed9 ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.07"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "\u0110i v\u00e0o tuy\u1ebfn \u0111\u01b0\u1eddng c\u00f3 bi\u1ec3n b\u00e1o c\u1ea5m \u00f4 t\u00f4",
+      "B": "\u0110i ng\u01b0\u1ee3c chi\u1ec1u",
+      "C": "\u0110i v\u00e0o tuy\u1ebfn \u0111\u01b0\u1eddng n\u00f4ng th\u00f4n",
+      "D": "\u0110i sai l\u00e0n \u0111\u01b0\u1eddng"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_92",
+    "image_id": "public_test_8_9",
+    "question": "Khi \u0111i\u1ec1u khi\u1ec3n ph\u01b0\u01a1ng ti\u1ec7n giao th\u00f4ng g\u1eb7p c\u00e1c bi\u1ec3n b\u00e1o giao th\u00f4ng \u1edf tuy\u1ebfn \u0111\u01b0\u1eddng n\u00e0y ng\u01b0\u1eddi \u0111i\u1ec1u khi\u1ec3n ph\u01b0\u01a1ng ti\u1ec7n kh\u00f4ng \u0111\u01b0\u1ee3c \u0111i v\u00e0o g\u1ed3m nh\u1eefng ph\u01b0\u01a1ng ti\u1ec7n n\u00e0o ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.11"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Xe \u00f4 t\u00f4, xe m\u00e1y",
+      "B": "Xe 3 b\u00e1nh v\u00e0 4 b\u00e1nh th\u00f4 s\u01a1",
+      "C": "Xe t\u1ea3i, xe b\u00e1n t\u1ea3i",
+      "D": "Xe bu\u00fdt, xe \u0111\u00f3n kh\u00e1ch"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_93",
+    "image_id": "public_test_8_9",
+    "question": "Khi \u0111i\u1ec1u khi\u1ec3n xe m\u00e1y tr\u00ean tuy\u1ebfn \u0111\u01b0\u1eddng n\u00e0y, bi\u1ec3n b\u00e1o kh\u00f4ng c\u00f3 hi\u1ec7u l\u1ef1c v\u1edbi xe m\u00e1y l\u00e0 bi\u1ec3n b\u00e1o n\u00e0o ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.11"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Bi\u1ec3n \"T\u1ed1c \u0111\u1ed9 t\u1ed1i \u0111a cho ph\u00e9p\"",
+      "B": "Bi\u1ec3n \"C\u1ea5m \u0111\u1ed7 xe\"",
+      "C": "Bi\u1ec3n \"C\u1ea5m xe 3 b\u00e1nh v\u00e0 4 b\u00e1nh th\u00f4 s\u01a1\"",
+      "D": "Bi\u1ec3n \"G\u1ed9p l\u00e0n \u0111\u01b0\u1eddng theo ph\u01b0\u01a1ng ti\u1ec7n\""
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_94",
+    "image_id": "public_test_8_9",
+    "question": "Xe th\u00f4 s\u01a1 3 b\u00e1nh \u0111\u01b0\u1ee3c ph\u00e9p l\u01b0u th\u00f4ng v\u00e0o tuy\u1ebfn \u0111\u01b0\u1eddng n\u00e0y v\u00e0o m\u1ecdi khung gi\u1edd l\u00e0 \u0111\u00fang hay sai ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.11"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "41"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "F.10"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_95",
+    "image_id": "public_test_8_6",
+    "question": "Khi tham gia giao th\u00f4ng, g\u1eb7p bi\u1ec3n b\u00e1o n\u00e0y th\u00ec ng\u01b0\u1eddi \u0111i\u1ec1u khi\u1ec3n ph\u01b0\u01a1ng ti\u1ec7n giao th\u00f4ng c\u1ea7n ch\u00fa \u00fd g\u00ec ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.15"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Kh\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p ch\u1ea1y qu\u00e1 10km/h",
+      "B": "T\u1ed1c t\u1ed9 t\u1ed1i thi\u1ec3u l\u00e0 10 km/h",
+      "C": "Kh\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p \u0111i\u1ec1u khi\u1ec3n xe c\u00f3 tr\u1ecdng t\u1ea3i to\u00e0n b\u1ed9 xe 10 t\u1ea5n tr\u1edf l\u00ean",
+      "D": "Xe t\u1eeb 10 t\u1ea5n tr\u1edf l\u00ean ph\u1ea3i \u0111i ch\u1eadm"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_96",
+    "image_id": "public_test_8_3",
+    "question": "Bi\u1ec3n b\u00e1o giao th\u00f4ng n\u00e0y cho bi\u1ebft chi\u1ec1u d\u00e0i c\u1ee7a xe kh\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p v\u01b0\u1ee3t qu\u00e1 9m l\u00e0 \u0111\u00fang hay sai ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.19"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_97",
+    "image_id": "public_test_8_2",
+    "question": "Bi\u1ec3n b\u00e1o n\u00e0y l\u00e0 bi\u1ec3n b\u00e1o c\u1ea5m ch\u1ea1y ng\u01b0\u1ee3c chi\u1ec1u l\u00e0 \u0111\u00fang hay sai ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.2"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_98",
+    "image_id": "public_test_8_4",
+    "question": "Khi tham gia giao th\u00f4ng, g\u1eb7p bi\u1ec3n b\u00e1o n\u00e0y th\u00ec ng\u01b0\u1eddi \u0111i\u1ec1u khi\u1ec3n ph\u01b0\u01a1ng ti\u1ec7n giao th\u00f4ng kh\u00f4ng \u0111\u01b0\u1ee3c ph\u00e9p l\u00e0m g\u00ec ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.2"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Quay xe",
+      "B": "\u0110i th\u1eb3ng",
+      "C": "Xi nhan",
+      "D": "Ch\u1ea1y ng\u01b0\u1ee3c chi\u1ec1u"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "public_test_99",
+    "image_id": "public_test_8_4",
+    "question": "\u0110o\u1ea1n \u0111\u01b0\u1eddng tr\u00ean cho ph\u00e9p \u01b0u ti\u00ean xe m\u00e1y \u0111i ng\u01b0\u1ee3c chi\u1ec1u l\u00e0 \u0111\u00fang hay sai ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.2"
+      }
+    ],
+    "question_type": "Yes/No",
+    "answer": "Yes"
+  },
+  {
+    "id": "public_test_100",
+    "image_id": "public_test_8_1",
+    "question": "Bi\u1ec3n b\u00e1o n\u00e0y thu\u1ed9c lo\u1ea1i bi\u1ec3n b\u00e1o n\u00e0o ?",
+    "relevant_articles": [
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "22"
+      },
+      {
+        "law_id": "QCVN 41:2024/BGTVT",
+        "article_id": "B.2"
+      }
+    ],
+    "question_type": "Multiple choice",
+    "choices": {
+      "A": "Bi\u1ec3n b\u00e1o c\u1ea5m",
+      "B": "Bi\u1ec3n b\u00e1o c\u1ea3nh b\u00e1o nguy hi\u1ec3m",
+      "C": "Bi\u1ec3n ch\u1ec9 d\u1eabn",
+      "D": "B\u1ea3n hi\u1ec7u l\u1ec7nh"
+    },
+    "answer": "A"
+  }
+]
