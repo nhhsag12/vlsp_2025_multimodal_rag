@@ -81,6 +81,7 @@ def train_worker(rank, world_size):
     batch_size = 3072
     num_epochs = 3
     margin = 0.5
+    projection_dim = 1024
     num_gpus = world_size
     if rank == 0:
         experiment = Experiment(
@@ -88,7 +89,7 @@ def train_worker(rank, world_size):
             project_name="vlsp_multimodal_retriever",
             workspace=os.getenv("COMET_WORKSPACE"),
         )
-        num_epochs = 3
+        # num_epochs = 3
         experiment.log_parameters({
             "learning_rate": learning_rate,
             "batch_size": batch_size,
@@ -109,7 +110,7 @@ def train_worker(rank, world_size):
     # Initialize the retriever
     if rank == 0:
         print("Initializing the retriever...")
-    retriever = Retriever(projection_dim=1024).to(device)
+    retriever = Retriever(projection_dim=projection_dim).to(device)
 
     # Wrap model with DDP
     retriever = DDP(retriever, device_ids=[rank], output_device=rank, find_unused_parameters=True)
@@ -178,7 +179,7 @@ def train_worker(rank, world_size):
         print(f"Model will be saved to: {folder_path}")
 
     # Training Loop
-    num_epochs = 3
+    # num_epochs = 3
     retriever.train()
     for epoch in range(num_epochs):
         # Set epoch for distributed sampler
@@ -234,7 +235,8 @@ def train_worker(rank, world_size):
             print(f"Epoch {epoch + 1}/{num_epochs} completed. Average Loss: {avg_loss:.4f}")
 
             # Save model checkpoint every epoch
-            model_path = save_model(retriever.module, epoch_folder_path)
+            model_name = f"model_epoch_{epoch + 1}.pt"
+            model_path = save_model(retriever.module, epoch_folder_path, model_name)
             if experiment:
                 experiment.log_model(f"model_epoch_{epoch}", model_path)
             print(f"Model saved to: {model_path}")
@@ -250,7 +252,7 @@ def train_worker(rank, world_size):
                 document_embeddings=document_embeddings,
                 image_base_path=image_base_path,
                 k=10,
-                similarity_threshold=0.7,
+                similarity_threshold=0.8,
                 device=device
             )
 
@@ -279,7 +281,8 @@ def train_worker(rank, world_size):
         print("Training completed!")
 
         # Save final model
-        final_model_path = save_model(retriever.module, folder_path)
+        model_name = f"final_model.pt"
+        final_model_path = save_model(retriever.module, folder_path, model_name)
         if experiment:
             experiment.log_model("final_model", final_model_path)
 
