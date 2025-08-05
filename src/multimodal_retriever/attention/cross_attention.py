@@ -51,17 +51,17 @@ class CrossAttention(nn.Module):
             ) for _ in range(2)
         ])
 
-    def forward(self, text_embedding: torch.Tensor, image_embeddings: torch.Tensor) -> torch.Tensor:
+    def forward(self, text_embedding: torch.Tensor, image_embedding: torch.Tensor) -> torch.Tensor:
         """
         Performs projection and then multi-layer cross-attention
 
         :param text_embedding: The query from the text (torch.Tensor). Shape: (batch_size, 1, text_embed_dim)
-        :param image_embeddings: The key/value from the image (torch.Tensor). Shape: (batch_size, num_patches, image_embed_dim)
+        :param image_embedding: The key/value from the image (torch.Tensor). Shape: (batch_size, num_patches, image_embed_dim)
         :return: torch.Tensor: The fused embedding. Shape: (batch_size, 1, projection_dim)
         """
         # Project the text and image embeddings to the common dimension
         projected_text = self.text_projection(text_embedding)
-        projected_image = self.image_projection(image_embeddings)
+        projected_image = self.image_projection(image_embedding)
 
         # Multi-layer cross-attention with residual connections
         output = projected_text

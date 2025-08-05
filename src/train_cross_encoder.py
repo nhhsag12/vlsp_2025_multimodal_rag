@@ -63,7 +63,7 @@ def train_worker(rank, world_size):
 
     # --- Hyperparameters and Configuration ---
     learning_rate = 1e-5
-    batch_size = 3072  # Smaller batch size for CrossEncoder
+    batch_size = 768  # Smaller batch size for CrossEncoder
     num_epochs = 5
     margin = 0.5  # Margin for contrastive loss
     num_gpus = world_size
@@ -132,7 +132,7 @@ def train_worker(rank, world_size):
         batch_size=batch_size_per_gpu,
         sampler=train_sampler,
         collate_fn=collate_fn,
-        num_workers=4,
+        num_workers=10,
         pin_memory=True,
     )
     if rank == 0:

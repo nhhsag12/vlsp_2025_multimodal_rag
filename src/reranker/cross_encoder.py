@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 import json
+
+from src.multimodal_retriever.attention.cross_attention import CrossAttention
 from src.multimodal_retriever.encoders.text_encoder import TextEncoder
 from src.multimodal_retriever.encoders.vision_encoder import VisionEncoder
 from typing import Union, List, Tuple
@@ -28,7 +30,7 @@ class CrossEncoder(nn.Module):
 
         # Fusion layer to combine multimodal query with document text
         fusion_input_size = text_hidden_size + image_hidden_size + text_hidden_size  # query_text + image + doc_text
-
+        self.projection_dim = int(text_hidden_size + image_hidden_size)
         self.fusion_layer = nn.Sequential(
             nn.Linear(fusion_input_size, fusion_input_size // 2),
             nn.LayerNorm(fusion_input_size // 2),
@@ -42,14 +44,19 @@ class CrossEncoder(nn.Module):
         )
 
         # Alternative: You could use the attention mechanism for better fusion
-        self.use_attention = False
+        self.use_attention = True
         if self.use_attention:
-            self.attention_layer = nn.MultiheadAttention(
-                embed_dim=text_hidden_size,
-                num_heads=8,
-                dropout=dropout,
-                batch_first=True
+            self.attention_layer = CrossAttention(
+                image_embed_dim=image_hidden_size,
+                text_embed_dim=text_hidden_size,
+                projection_dim=self.projection_dim,
             )
+            # self.attention_layer = nn.MultiheadAttention(
+            #     embed_dim=text_hidden_size,
+            #     num_heads=8,
+            #     dropout=dropout,
+            #     batch_first=True
+            # )
 
     def forward(self,
                 query_image: Union[Image.Image, List[Image.Image]],
@@ -78,11 +85,12 @@ class CrossEncoder(nn.Module):
 
         # Encode query text
         query_text_embeddings = self.text_model.encode(query_text)  # (batch_size, text_hidden_size)
+        query_text_embeddings = query_text_embeddings.unsqueeze(1) # (batch_size, 1, text_hidden_size)
 
         # Encode query image
         image_embeddings = self.vision_model(query_image)  # (batch_size, seq_len, image_hidden_size)
         # Use CLS token (first token) or average pooling for image representation
-        image_embeddings = image_embeddings[:, 0, :]  # (batch_size, image_hidden_size) - CLS token
+        # image_embedding = image_embedding[:, 0, :]  # (batch_size, image_hidden_size) - CLS token
 
         # Encode document texts
         if self.document_embeddings:
@@ -91,31 +99,27 @@ class CrossEncoder(nn.Module):
                 doc_embedding = self.document_embeddings.get(text, None)
                 if doc_embedding:
                     doc_text_embeddings.append(doc_embedding)
-            doc_text_embeddings = torch.tensor(doc_text_embeddings)
+            doc_text_embeddings = torch.tensor(doc_text_embeddings) # (batch_size, text_hidden_size)
         else:
             doc_text_embeddings = self.text_model.encode(document_texts)  # (batch_size, text_hidden_size)
 
         # Move embeddings to correct device
-        query_text_embeddings = query_text_embeddings.to(device)
+        query_text_embeddings = query_text_embeddings.clone().to(device)
         image_embeddings = image_embeddings.to(device)
         doc_text_embeddings = doc_text_embeddings.to(device)
 
         if self.use_attention:
-            # Use attention mechanism for fusion
-            # Combine query embeddings first
-            query_combined = torch.cat([query_text_embeddings, image_embeddings], dim=-1)
-
-            # Apply attention between query and document
-            query_combined = query_combined.unsqueeze(1)  # (batch_size, 1, combined_dim)
-            doc_text_embeddings_expanded = doc_text_embeddings.unsqueeze(1)  # (batch_size, 1, text_dim)
-
-            attended_output, _ = self.attention_layer(
-                query_combined, doc_text_embeddings_expanded, doc_text_embeddings_expanded
+            attended_output = self.attention_layer(
+                text_embedding=query_text_embeddings,
+                image_embedding=image_embeddings
             )
+            attended_output = attended_output.squeeze(1)
 
             # Combine with original embeddings
+            # print(doc_text_embeddings.shape)
+            # print(attended_output.shape)
             fused_features = torch.cat([
-                attended_output.squeeze(1),
+                attended_output,
                 doc_text_embeddings
             ], dim=-1)
         else:
