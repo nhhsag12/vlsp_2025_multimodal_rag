@@ -48,8 +48,20 @@ if __name__=="__main__":
     database = embedding_database(database, model)
     print("Embedded the database")
 
+    # Construct the embedding list of documents
+    print("Constructing the embedding list of documents...")
+    record_id_to_document_embedding_v2 = {}
+    for record in database:
+        text = record["article_title"] + "\n" + record["text"]
+        embedding = record["embedding"]
+        record_id_to_document_embedding_v2[record["record_id"]] = {
+            "text": text,
+            "embedding": embedding
+        }
+    print("Constructed the embedding list of documents")
+
     # Save teh database
     print("Saving the database...")
-    save_database("data/record_id_to_document_embedding_v2.json", database)
+    save_database("data/record_id_to_document_embedding_v2.json", record_id_to_document_embedding_v2)
     print("Saved the database")
 
