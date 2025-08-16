@@ -7,12 +7,14 @@ from transformers.masking_utils import padding_mask_function
 from FlagEmbedding.research.visual_bge.visual_bge.modeling import Visualized_BGE
 
 class RetrieverV2(nn.Module):
-    def __init__(self, pretrained_model_path:str="pretrained_model/Visualized_m3.pth", proj_dim:int = 1024, dropout:float = 0.1):
+    def __init__(self, pretrained_model_path:str="src/multimodal_retriever/pretrained_model/Visualized_m3.pth", proj_dim:int = 1024, dropout:float = 0.1):
         super().__init__()
         self.model = Visualized_BGE(model_name_bge = "BAAI/bge-m3", model_weight=pretrained_model_path)
         # Add the following line to convert the BGE model to half precision.
         # self.model.half()
         self.tokenizer = self.model.tokenizer
+        self.preprocess_train = self.model.preprocess_train
+        self.preprocess_val = self.model.preprocess_val
         # self.device = next(self.parameters()).device
         # self.device = self.model.device
 
