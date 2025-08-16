@@ -1,3 +1,4 @@
+from comet_ml import Experiment
 import json
 import os
 import time
@@ -10,7 +11,6 @@ from torch.utils.data.distributed import DistributedSampler
 from tqdm import tqdm
 from PIL import Image
 from dotenv import load_dotenv
-from comet_ml import Experiment
 
 from src.multimodal_retriever.retriever_v2 import RetrieverV2
 from src.utils.dataset_utils import MultimodalTripletDataset
@@ -31,44 +31,46 @@ def cleanup():
     dist.destroy_process_group()
 
 
-def collate_fn(batch, preprocessor):
-    # Load the necessary materials
-    base_image_path = "data/VLSP 2025 - MLQA-TSR Data Release/train_data/train_images/train"
-    record_id_to_document_embedding_path = "data/record_id_to_document_embedding.json"
-    with open(record_id_to_document_embedding_path, "r") as f:
-        record_id_to_document_embedding = json.load(f)
+class CollateClass:
+    def __init__(self, preprocessor):
+        self.preprocessor = preprocessor
+        self.base_image_path = "data/VLSP 2025 - MLQA-TSR Data Release/train_data/train_images/train"
+        record_id_to_document_embedding_path = "data/record_id_to_document_embedding.json"
+        with open(record_id_to_document_embedding_path, "r") as f:
+            self.record_id_to_document_embedding = json.load(f)
 
-    # Process the data with the material
-    preprocessed_images = []
-    query_texts = []
-    positive_record_embeddings = []
-    negative_record_embeddings = []
-    for item in batch:
-        image = Image.open(os.path.join(base_image_path, item[0]))
-        # image = image.resize((224, 224))
-        preprocessed_image = preprocessor(image)
-        preprocessed_images.append(preprocessed_image)
+    def __call__(self, batch):
+        # Process the data with the material
+        preprocessed_images = []
+        query_texts = []
+        positive_record_embeddings = []
+        negative_record_embeddings = []
+        for item in batch:
+            image = Image.open(os.path.join(self.base_image_path, item[0]))
+            preprocessed_image = self.preprocessor(image)
+            preprocessed_images.append(preprocessed_image)
 
-        query_text = item[1]
-        query_texts.append(query_text)
+            query_text = item[1]
+            query_texts.append(query_text)
 
-        positive_record_id = item[2]
-        try:
-            positive_record_embedding = torch.tensor(record_id_to_document_embedding[positive_record_id]["embedding"])
-            positive_record_embeddings.append(positive_record_embedding)
-        except:
-            print(f"Record ID {positive_record_id} not found in the document embeddings.")
-            print(item)
-            exit()
-        negative_record_id = item[3]
-        negative_record_embedding = torch.tensor(record_id_to_document_embedding[negative_record_id]["embedding"])
-        negative_record_embeddings.append(negative_record_embedding)
+            positive_record_id = item[2]
+            try:
+                positive_record_embedding = torch.tensor(self.record_id_to_document_embedding[positive_record_id]["embedding"])
+                positive_record_embeddings.append(positive_record_embedding)
+            except:
+                print(f"Record ID {positive_record_id} not found in the document embeddings.")
+                print(item)
+                exit()
+            negative_record_id = item[3]
+            negative_record_embedding = torch.tensor(self.record_id_to_document_embedding[negative_record_id]["embedding"])
+            negative_record_embeddings.append(negative_record_embedding)
 
-    # Stack tensors
-    positive_record_embeddings = torch.stack(positive_record_embeddings)
-    negative_record_embeddings = torch.stack(negative_record_embeddings)
-    preprocessed_images = torch.stack(preprocessed_images)
-    return preprocessed_images, query_texts, positive_record_embeddings, negative_record_embeddings
+        # Stack tensors
+        positive_record_embeddings = torch.stack(positive_record_embeddings)
+        negative_record_embeddings = torch.stack(negative_record_embeddings)
+        preprocessed_images = torch.stack(preprocessed_images)
+        return preprocessed_images, query_texts, positive_record_embeddings, negative_record_embeddings
+
 
 
 def train_worker(rank, world_size):
@@ -80,7 +82,7 @@ def train_worker(rank, world_size):
     # Initialize Comet ML experiment tracking only on rank 0
     experiment = None
     learning_rate = 1e-4
-    batch_size = 1536
+    batch_size = 256
     num_epochs = 3
     margin = 0.3
     projection_dim = 1024
@@ -123,16 +125,10 @@ def train_worker(rank, world_size):
     # Wrap model with DDP
     retriever = DDP(retriever, device_ids=[rank], output_device=rank, find_unused_parameters=True)
     retriever.train()
+    # Get the preprocessor
     preprocessor = retriever.module.preprocess_train
 
-    if rank == 0:
-        print("Retriever initialized with DDP.")
-
-    # Freeze the pre-trained encoders to save memory and prevent catastrophic forgetting
-    # for param in retriever.module.vision_encoder.parameters():
-    #     param.requires_grad = False
-    # for param in retriever.module.text_encoder.model.parameters():
-    #     param.requires_grad = False
+    # Freeze the pre-trained encoders
     for param in retriever.module.model.parameters():
         param.requires_grad = False
 
@@ -147,8 +143,6 @@ def train_worker(rank, world_size):
     loss_fn = nn.TripletMarginLoss(margin=margin)
 
     # Setup the dataset
-    if rank == 0:
-        print("Loading dataset...")
     dataset_path = "data/processed_vlsp_2025_multimodal_rag_dataset_120000.json"
     with open(dataset_path, "r") as f:
         dataset = json.load(f)
@@ -162,16 +156,20 @@ def train_worker(rank, world_size):
         shuffle=True
     )
 
+    # Create an instance of the collate class
+    custom_collate_fn = CollateClass(preprocessor)
+
     # Adjust batch size for distributed training
     batch_size_per_gpu = batch_size // world_size
     train_dataloader = torch.utils.data.DataLoader(
         dataset,
         batch_size=batch_size_per_gpu,
         sampler=train_sampler,
-        collate_fn=lambda x: collate_fn(x, preprocessor),
-        num_workers=4,  # Add workers for better data loading performance
+        collate_fn=custom_collate_fn,  # Pass the instance of the class
+        num_workers=4,
         pin_memory=True,
     )
+
 
     if rank == 0:
         print(f"Dataset loaded. Batch size per GPU: {batch_size_per_gpu}")
@@ -214,7 +212,9 @@ def train_worker(rank, world_size):
             negative_record_embeddings = negative_record_embeddings.to(device)
 
             # Forward pass through the retriever
-            multimodal_embeddings = retriever(images, query_texts)
+            # print(query_texts)
+            # print(type(query_texts))
+            multimodal_embeddings = retriever(query_texts, images)
 
             # Calculate triplet loss
             loss = loss_fn(multimodal_embeddings, positive_record_embeddings, negative_record_embeddings)
