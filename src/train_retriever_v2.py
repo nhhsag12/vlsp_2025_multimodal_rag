@@ -31,7 +31,7 @@ def cleanup():
     dist.destroy_process_group()
 
 
-def collate_fn(batch):
+def collate_fn(batch, preprocessor):
     # Load the necessary materials
     base_image_path = "data/VLSP 2025 - MLQA-TSR Data Release/train_data/train_images/train"
     record_id_to_document_embedding_path = "data/record_id_to_document_embedding.json"
@@ -39,14 +39,15 @@ def collate_fn(batch):
         record_id_to_document_embedding = json.load(f)
 
     # Process the data with the material
-    images = []
+    preprocessed_images = []
     query_texts = []
     positive_record_embeddings = []
     negative_record_embeddings = []
     for item in batch:
-        image = Image.open(os.path.join(base_image_path, item[0])).convert("RGB")
-        image = image.resize((224, 224))
-        images.append(image)
+        image = Image.open(os.path.join(base_image_path, item[0]))
+        # image = image.resize((224, 224))
+        preprocessed_image = preprocessor(image)
+        preprocessed_images.append(preprocessed_image)
 
         query_text = item[1]
         query_texts.append(query_text)
@@ -66,7 +67,8 @@ def collate_fn(batch):
     # Stack tensors
     positive_record_embeddings = torch.stack(positive_record_embeddings)
     negative_record_embeddings = torch.stack(negative_record_embeddings)
-    return images, query_texts, positive_record_embeddings, negative_record_embeddings
+    preprocessed_images = torch.stack(preprocessed_images)
+    return preprocessed_images, query_texts, positive_record_embeddings, negative_record_embeddings
 
 
 def train_worker(rank, world_size):
@@ -121,6 +123,7 @@ def train_worker(rank, world_size):
     # Wrap model with DDP
     retriever = DDP(retriever, device_ids=[rank], output_device=rank, find_unused_parameters=True)
     retriever.train()
+    preprocessor = retriever.module.preprocess_train
 
     if rank == 0:
         print("Retriever initialized with DDP.")
@@ -165,7 +168,7 @@ def train_worker(rank, world_size):
         dataset,
         batch_size=batch_size_per_gpu,
         sampler=train_sampler,
-        collate_fn=collate_fn,
+        collate_fn=lambda x: collate_fn(x, preprocessor),
         num_workers=4,  # Add workers for better data loading performance
         pin_memory=True,
     )
