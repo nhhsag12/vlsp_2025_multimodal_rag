@@ -18,7 +18,7 @@ def save_model(model, base_path: str, model_name: str) -> str:
     """
     # timestamp = time.strftime("%Y%m%d-%H%M%S")
     os.makedirs(base_path, exist_ok=True)
-    path_file = os.path.join(base_path, f"{model_name}.pt")
+    path_file = os.path.join(base_path, f"{model_name}")
     torch.save(model.state_dict(), path_file)
     return path_file
 
