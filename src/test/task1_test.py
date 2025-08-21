@@ -51,33 +51,33 @@ def setup_faiss_index(embedding_path: str) -> Tuple[faiss.Index, List[str], Dict
     print(f"FAISS index created successfully. Total entries: {index.ntotal}")
     return index, record_ids, tensor_document_embeddings
 
+
 def run_full_rag_pipeline(
         retriever: Retriever,
-        reranker: CrossEncoder,
         test_data: List[Dict],
         faiss_index: faiss.Index,
         record_ids: List[str],
         doc_embeddings: Dict,
-        config: Dict
+        config: Dict,
+        device: torch.device
 ) -> List[Dict]:
     """
-    Executes the end-to-end RAG pipeline: retrieval followed by reranking.
+    Executes the end-to-end RAG pipeline using only retrieval.
 
     Args:
         retriever: The trained retriever model.
-        reranker: The trained cross-encoder model for reranking.
         test_data: The list of test cases to process.
         faiss_index: The FAISS index for document search.
         record_ids: A list of record IDs corresponding to the FAISS index order.
         doc_embeddings: A dictionary mapping record IDs to their text and embeddings.
         config: A configuration dictionary with paths and parameters.
+        device: The PyTorch device to use ('cuda' or 'cpu').
 
     Returns:
-        A list of final results, with documents reranked by the cross-encoder.
+        A list of final results, with documents from the retrieval stage.
     """
     final_results = []
     retriever.eval()
-    reranker.eval()
 
     with torch.no_grad():
         for i, test_item in enumerate(test_data):
@@ -94,15 +94,19 @@ def run_full_rag_pipeline(
                 continue
 
             query_image = Image.open(image_path).convert('RGB')
+            query_image = query_image.resize((224, 224))
 
-            # --- 2. Retrieval Stage ---
+            # --- 2. Retrieval Stage (This is now the final stage) ---
             print("  -> Stage 1: Retrieving initial documents.")
-            query_embedding = retriever(query_image, question).reshape(1, -1)
-            scores, indices = faiss_index.search(query_embedding, config["retrieval_k"])
+            query_embedding_np = retriever(query_image, question).reshape(1, -1)
+
+            # FAISS expects numpy arrays, so we must move the tensor back to the CPU
+            # query_embedding_np = query_embedding.cpu().numpy()
+            scores, indices = faiss_index.search(query_embedding_np, config["retrieval_k"])
 
             retrieved_docs = []
             for score, idx in zip(scores[0], indices[0]):
-                if float(score) > 0.75:
+                if float(score) > 0.8:  # Keep documents that meet a certain score threshold
                     record_id = record_ids[idx]
                     retrieved_docs.append({
                         "record_id": record_id,
@@ -111,22 +115,20 @@ def run_full_rag_pipeline(
                     })
 
             if not retrieved_docs:
-                print("  -> No documents found in retrieval stage.")
-                continue
+                print("  -> No documents found in retrieval stage. Adding top 3 by default.")
+                cnt = 0
+                for score, idx in zip(scores[0], indices[0]):
+                    if cnt >= 3:
+                        break
+                    record_id = record_ids[idx]
+                    retrieved_docs.append({
+                        "record_id": record_id,
+                        "text": doc_embeddings[record_id]["text"],
+                        "retriever_score": float(score)
+                    })
+                    cnt += 1
 
             print(f"  -> Retrieved {len(retrieved_docs)} documents.")
-
-            # --- 3. Reranking Stage ---
-            print("  -> Stage 2: Reranking with Cross-Encoder.")
-            document_texts_for_reranking = [doc['text'] for doc in retrieved_docs]
-            relevant_scores = reranker.predict_relevance(query_image, question, document_texts_for_reranking)
-            print(relevant_scores)
-            top_reranked_docs = []
-            for idx, doc in enumerate(retrieved_docs):
-                new_doc = deepcopy(doc)
-                new_doc["reranker_score"]=relevant_scores[idx][-1].detach().numpy()
-                top_reranked_docs.append(new_doc)
-
 
             final_results.append({
                 "id": test_id,
@@ -134,15 +136,9 @@ def run_full_rag_pipeline(
                 "question": question,
                 "relevant_articles": [
                     {"law_id": doc["record_id"].split('#')[0], "article_id": doc["record_id"].split('#')[1]}
-                    for doc in top_reranked_docs if doc["reranker_score"] >= 0.6
+                    for doc in retrieved_docs
                 ]
-                # "relevant_articles": [
-                #     {"law_id": doc["record_id"].split('#')[0], "article_id": doc["record_id"].split('#')[1]}
-                #     for doc in retrieved_docs
-                # ]
             })
-            # except Exception as e:
-            #     print(f"  -> Error during reranking for {test_id}: {e}")
 
     return final_results
 
@@ -221,28 +217,35 @@ def evaluate_f2_score(predictions: List[Dict], ground_truth: List[Dict]):
 
 def main():
     """
-    Main function to orchestrate the RAG pipeline execution.
+    Main function to orchestrate the RAG pipeline execution without a reranker.
     """
     # --- Configuration ---
     CONFIG = {
-        "retriever_path": "trained_model/trained_model_20250801-235534/model_20250802-001406.pt",
-        "reranker_path": "trained_model/cross_encoder_contrastive_20250805-015640/cross_encoder_epoch_3.pt",
+        "retriever_path": "models/model_20250801-224545.pt",
         "doc_embedding_path": "data/record_id_to_document_embedding.json",
         "test_data_path": "data/VLSP 2025 - MLQA-TSR Data Release/public_test/vlsp_2025_public_test_task2.json",
         "image_base_path": "data/VLSP 2025 - MLQA-TSR Data Release/public_test/public_test_images/public_test_images",
-        "output_path": "submission_result/submission_rag_pipeline.json",
+        "output_path": "submission_result/submission_retrieval_public_test.json",
         "retrieval_k": 10,  # Number of documents to retrieve initially
-        "rerank_top_n": 10,  # Number of documents to keep after reranking
     }
 
-    # --- Initialization ---
-    print("--- Initializing RAG Pipeline ---")
-    retriever_model = Retriever()
-    retriever_model = load_model(retriever_model, CONFIG["retriever_path"])
+    CONFIG_PRIVATE_TEST = {
+        "retriever_path": "models/model_20250801-224545.pt",
+        "doc_embedding_path": "data/record_id_to_document_embedding.json",
+        "test_data_path": "data/VLSP 2025 - MLQA-TSR Data Release/private_test/vlsp2025_submission_task1.json",
+        "image_base_path": "data/VLSP 2025 - MLQA-TSR Data Release/private_test/private_test_images/private_test_images",
+        "output_path": "submission_result/submission_retrieval_private_test.json",
+        "retrieval_k": 10,  # Number of documents to retrieve initially
+    }
 
-    # The CrossEncoder is initialized with the encoders from the loaded retriever
-    reranker_model = CrossEncoder(text_model=retriever_model.text_encoder, vision_model=retriever_model.vision_encoder)
-    reranker_model = load_model(reranker_model, CONFIG["reranker_path"])
+    # --- Device Setup ---
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
+
+    # --- Initialization ---
+    print("--- Initializing RAG Pipeline (Retrieval Only) ---")
+    retriever_model = Retriever().to(device)
+    retriever_model = load_model(retriever_model, CONFIG["retriever_path"])
 
     faiss_index, record_ids, doc_embeddings = setup_faiss_index(CONFIG["doc_embedding_path"])
 
@@ -255,12 +258,12 @@ def main():
     print("\n--- Starting RAG Processing ---")
     final_submission_results = run_full_rag_pipeline(
         retriever=retriever_model,
-        reranker=reranker_model,
         test_data=test_data,
         faiss_index=faiss_index,
         record_ids=record_ids,
         doc_embeddings=doc_embeddings,
-        config=CONFIG
+        config=CONFIG,
+        device=device
     )
 
     # --- Evaluate Results ---
@@ -276,6 +279,41 @@ def main():
         json.dump(final_submission_results, f, indent=4, ensure_ascii=False)
 
     print(f"Processing complete. Submission file saved to: {CONFIG['output_path']}")
+
+    # --- Run pipeline with private test ---
+
+    print("--- Initializing RAG Pipeline for Private Test (Retrieval Only) ---")
+    retriever_model = Retriever().to(device)
+    retriever_model = load_model(retriever_model, CONFIG_PRIVATE_TEST["retriever_path"])
+
+    faiss_index, record_ids, doc_embeddings = setup_faiss_index(CONFIG_PRIVATE_TEST["doc_embedding_path"])
+
+    print("\n--- Loading Test Data ---")
+    with open(CONFIG_PRIVATE_TEST["test_data_path"], "r", encoding="utf-8") as f:
+        test_data = json.load(f)
+    print(f"Loaded {len(test_data)} test items.")
+
+    print("\n--- Starting RAG Processing ---")
+    final_submission_results = run_full_rag_pipeline(
+        retriever=retriever_model,
+        test_data=test_data,
+        faiss_index=faiss_index,
+        record_ids=record_ids,
+        doc_embeddings=doc_embeddings,
+        config=CONFIG_PRIVATE_TEST,
+        device=device
+    )
+
+    # --- Save Results ---
+    print(f"\n--- Saving Final Results ---")
+    output_dir = os.path.dirname(CONFIG["output_path"])
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    with open(CONFIG_PRIVATE_TEST["output_path"], "w", encoding="utf-8") as f:
+        json.dump(final_submission_results, f, indent=4, ensure_ascii=False)
+
+    print(f"Processing complete. Submission file saved to: {CONFIG_PRIVATE_TEST['output_path']}")
 
 
 if __name__ == "__main__":
